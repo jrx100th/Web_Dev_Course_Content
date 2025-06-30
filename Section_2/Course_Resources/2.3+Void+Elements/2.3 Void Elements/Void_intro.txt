@@ -1,0 +1,21 @@
+non void elements are 
+paragraph element
+heading element
+
+they are non void because they have content in between
+
+
+
+Void elements are the elements where you are forbidden to put any elements in tag
+
+<hr />  ==> there is only a single tag
+horizontal rule element
+
+used as a seperation in between two other non void elements
+prints a horizontal line for seperation
+
+
+Break element == > <br />
+
+breaks a paragraph
+into multiple lines
