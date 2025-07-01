@@ -1,0 +1,20 @@
+
+similar to anchor tag
+
+image tag - void element
+
+# self closing tag
+<img src="url" />
+after that we can add the size of the photo
+
+<img src="xyz.com/200"/>
+
+now that 200 is the size of the photo
+
+# other attribute for image tags other than src is 
+alt
+
+ALT = alternative text description
+alt for screen reader
+
+<img src="xyz.com/200" alt="just a random testing imiage from a website"/>

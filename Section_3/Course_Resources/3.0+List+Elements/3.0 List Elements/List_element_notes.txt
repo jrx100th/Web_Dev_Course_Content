@@ -1,0 +1,32 @@
+lists
+list of items
+
+non void element
+
+unordered list = <ul> <ul/>
+
+lists are enclosed in un ordered lists
+
+<ul>
+    <li>bs</li> slash is in front
+    <li>bs</li>
+    <li>bs</li>
+</ul>
+
+just the same old bullet points
+
+
+just the UL
+will give bullet points
+
+
+so there is another <ol></ol>
+which is ordered list items
+
+<ol>
+    <li>bs</li> slash is in front
+    <li>bs</li>
+    <li>bs</li>
+</ol>
+
+now this will give the numbers from 1 to n

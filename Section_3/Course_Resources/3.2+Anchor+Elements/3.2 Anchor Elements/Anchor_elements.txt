@@ -1,0 +1,39 @@
+anchor elements allows use to create hyperlinks
+
+
+<a href = "google.com"> This is a link </a>
+
+so just <a></a>  wont work
+i need to have the href
+
+
+
+HTML attributes
+
+<tag attribute=value> Content </tag>
+
+in case of multiple attributes, => seperate them by space
+
+<tag attribute=value anotherattribute=value> Content </tag>
+
+
+correct active link will e highlighted in blue 
+
+
+## Global attributes
+draggable = true
+
+<a draggable=true href="reddit.com">here</a>
+
+multiple attributes are seperated using space
+
+href attribute is only for the anchor tag
+
+global attribute is for all the tags
+draggable is a global and works for all of them
+
+
+
+we can even decide from where the numbers in the list are starting from
+
+<ol start = 6>
