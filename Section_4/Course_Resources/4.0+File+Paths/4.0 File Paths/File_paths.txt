@@ -1,0 +1,20 @@
+Absolute file path
+
+absolute location = from the starting/root
+
+file path can direct someone to either a file or a folder
+
+Absolute = relative to the root of the computer
+
+Relative file path = relative to something
+they are relatively shorter
+
+
+../essay.docx => to go up a level, and go to the file in that level
+
+./dog.png = stay within the directory and look in there
+
+
+
+./ is current directory
+../ is parent directory

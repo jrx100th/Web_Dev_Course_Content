@@ -1,0 +1,60 @@
+# to understand the structure of the html files
+
+
+at the top 
+<!DOCTYPE html>  # denotes HTML 5 usage
+
+
+<html lang="en">    opening tag english language
+<head>
+not going to be displayed to the user
+<meta charset="UTF-8">         only utf 8 characterset
+<title>Website title on the tabs</title>
+</head>
+
+<body>
+all the content of the website 
+headings, paragraphs, hyperlinks, images, links etc
+</body>
+
+</html>             closing tag
+
+Summary as of now of boilerplate
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MyWebsite<title>
+</head>
+<body>
+stuff
+</body>
+</html>
+
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+
+<body>
+
+</body>
+<html>
+
+
+
+# as the sites get longer use good indentation and nesting practices to make things clear
+
+
+creating your own attribute
+
+<bun toppping = "sesame">
+   attribute name and  value
+</bun>
+
+
