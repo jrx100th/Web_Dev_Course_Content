@@ -1,0 +1,206 @@
+3 ways to adding CSS to HTML website
+
+Inline
+<tag style="css" />
+
+Internal
+<style>css</style>
+
+External
+<link href="style.css"/>
+
+
+Inline
+
+same line as html element
+goes into the opening line of the html tag
+
+<html style="background: blue">
+</html>
+
+style attribute - gloablly available, for image , break
+
+style is the name of the attribute
+"background: blue" is the value of the attribute
+
+background is the property
+blue is the value of the property
+
+since it is applied to HTML tag the whole page will be blue
+
+
+Internal
+
+through style element
+<html>
+    <head>
+        <style>
+            html{
+                background:red;
+            }
+        </style>
+    </head>
+</html>
+
+now we have to add a selector- curly braces
+the css goes in between those 2 curly braces(background:red;)
+
+
+
+for multipage style we shoudl use external CSS
+
+External CSS
+
+this code is in a completly seperate file
+
+so to apply it in our files we have to link it in our index file
+
+style.css will have this
+html{
+    background:green;
+}
+
+index.html will have this in the corresponding component
+like this
+and will have 2 components
+1. relationship, role of the thing that we are linking to
+2. href, where is the file located
+
+this link is a (self closing tag)
+<html>
+    <head>
+        <link
+            rel="stylesheet"
+            href="./styles.css"
+        />
+    </head>
+</html>
+
+
+
+
+
+
+so in summary
+inline is good when we are targetting single element
+internal is good when we are targetting a single web page
+
+external for multi page website = w=external way of adding stuff
+it can target entire website with multiple web pages
+
+
+
+
+## 34 CSS Selector elements
+
+
+
+
+1. Element Selector
+
+
+h1{
+    color:blue
+}
+
+h1 is called css selector
+selects html to apply the rules
+
+it is a html selector
+right now it is selecting all h1 tags
+
+can apply to any tags => anchor,paragraph etc
+
+element selector
+
+eg:
+index.html
+<h2>red</h2>
+<h2>green</h2>
+<h2>blue</h2>
+
+
+styles.css
+h2{
+    color:red;
+}
+now it targets all h2 tags
+
+
+
+
+
+2. Class Selector
+
+for different types of elements comes under the same class
+
+.red-text{
+    color: red
+}
+
+<h2 class="red-text">Red</h2>       # turns red
+<h2>green</h2>                      # stays same
+<h2>blue</h2>                       # stays same
+
+selects the only element that has that class and changes it
+
+now different element having the same class
+
+<h2 class="red-text">Heading 2</h2>     # turns red
+<h3>Heading</h3>
+<p class="red-text">Paragraph</p>       # turns red
+
+
+
+3. Id Selector
+
+#main{
+    color: red
+}
+
+selects all elements with particular id attribute
+
+<h2 id="main">Red</h2>              # turns red
+<h2>green</h2>                      # stays same
+<h2>blue</h2>                       # stays same
+
+difference between class selector and id selector
+id - one element in single HTML file, unique
+class - many elements, basically grouping
+
+
+
+
+4. Attribute Selector
+
+p[draggable]{        # here by default draggable is true
+    color: red;
+} 
+
+select all paragraph elements that has attribute draggable, apply css style to it
+
+<p draggable="true">Drag me</p>    #turns red
+<p>Dont drag me</p>                # stays same
+<p>Dont drag me</p>                # stays same
+
+
+
+p[draggable="false"]{
+    color: red;
+}
+
+<p draggable="true">Drag me</p>                      # stays same
+<p draggable="false">Dont drag me</p>                # turns red
+<p draggable="false">Dont drag me</p>                # turns Red
+
+
+
+
+5. Universal Selector
+
+*{
+    color: red
+}
+
+it selects everything
+where the stylesheet is active
