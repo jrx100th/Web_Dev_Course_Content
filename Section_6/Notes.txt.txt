@@ -1,0 +1,219 @@
+Color properties
+
+html{
+    background-color: red
+}
+
+h1{
+    color: blue    # text
+}
+
+element{
+    property: value
+}
+
+red and blue are named colors
+all colors are available in mdn docs
+
+color palets @ colorhunt.co
+
+hex codes - representing larger codes for colors
+
+hex code can be used instead of the name of the color
+
+
+
+
+
+
+## Font Properties
+
+h1{
+    color: blue
+    font-weight: bold
+    font-size: 20px
+    font-family:sans-serif
+}
+
+
+1. Font size
+
+h1{
+    font-size: 20px
+}
+
+1 px = 1 pixel = 1/96th of an inch = 0.26mm wide and tall (cube)
+
+1 pt = 1 point = 1/72nd inch = 0.35mm
+
+1 em = 100% of parent = full width of 'm' = same size as the parent tag
+2 em = 2 times the size of the parent
+it is relative size
+
+1 rem = 100% of root
+relative size
+relative to the html 
+root = html tag
+
+difference between em and rem
+em = parent size dependent
+rem = html root size dependent
+
+
+
+2. Font weight
+
+h1{
+    font-weight:bold
+}
+
+keywords = normal, bold
+
+relative to parent = lighter, bolder
+
+number = 100 - 900
+
+
+
+
+3. Font family
+
+h1{
+    font-family: Helvetica[main], sans-serif[backup, generic]
+}
+
+when font families are of more than 1 word, then use quotation marks around it
+eg:
+h2{
+    font-family: "Times New Roman",serif
+}
+
+
+
+4. Text Alignment
+
+h1{
+    text-align: center
+}
+
+start, end, left, right
+
+
+
+
+
+# The Box Model
+
+Margin , Padding, Border, Width , Height = imp css properties
+
+width : 600px is 600 pixels
+width : 100% = 100% of website width
+
+
+
+1. Border
+
+border: 10px solid black
+3 values seperated by space
+thickness style color
+
+the border goes outwards and not inwards
+
+doesnt effect height and width
+
+border : 30px solid black
+    border-top: 0px
+
+border-width: 0px 10px 20px 30px
+it goes clock wisw
+0px = top
+10px = right
+20px down
+30px = left
+
+if only two values are given to border width
+then it will be 1&3 2&4
+border-width : 0px 20px
+
+top and bottom 0px
+left and right 20px
+
+
+
+
+2. Padding
+
+if padding of 20px is added then it will push the border away from the content by 20px on all sides
+
+height and width of the initial box for the content will not be changed but the border will be pushed away by 20px
+maintaining the same color properties
+
+
+
+3. Margin
+
+outside the border, invisible ,maybe
+
+
+
+
+padding, margin, 
+border width
+functions in same way 1&3 2&4
+1,2,3,4
+
+
+
+
+
+
+there is an image and i want to put a caption in it
+
+so to put it in a box and contain it
+wrap them together
+through 
+
+Content Division Element     HTML element
+<div></div>
+
+that can contain content in between opening and closing tags
+
+and the content can be elements(html elements)
+
+seperate boxes = divs
+
+
+
+<body>
+    <div>
+        <p>Hello World</p>
+        <img src="./world.png"/>
+    </div>
+    <div>
+        <p>good night wordl</p>
+        <img src="./night-world.png">
+    </div>
+</body>
+
+here div is  just containing the image and its caption
+and they are invisible
+due to its invisibility it can lead to errors, bugs
+
+so installed pesticide chrome extension
+
+
+
+
+
+
+By default paragraphs will have 1em of margin
+
+so just
+p{
+    margin: 0
+}
+
+div{
+    height:200px;
+    width:200px;
+}
