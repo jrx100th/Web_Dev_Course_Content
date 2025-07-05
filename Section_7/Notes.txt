@@ -1,0 +1,290 @@
+Cascading
+
+which rule will be applied and which one will be ignored
+
+order of importance
+the last rule applied to the element will be permanently applied to importance
+
+
+1st level style = external style sheet
+2nd level = internal
+3rd level = inline
+
+the last level will be displayed
+
+
+
+
+4 Broad categories to determine overall level of importance of css rule
+
+
+1. Position
+2. Specificity
+3. Type
+4. importance
+
+
+
+
+1. Position
+
+eg:
+
+li{
+    color: red;         first it becomes red
+    color: blue;        then it becomes blue
+}
+
+blue will be displayed, because it is in the last
+
+Now another eg:
+
+li{
+    color: red;         first it becomes red
+    color: blue;        then it becomes blue
+}
+
+li{
+    color:green;
+}
+
+now the new css selector will override the previous li selector
+and green will be displayed
+
+similarly this positioning goes for external, internal, inline
+
+
+
+
+
+2. Specificity
+
+referes to how specific a selector is in terms of the elements that you apply a rule to
+
+li{color: blue;}
+.first-class{color: red;}
+li[draggable]{color:purple;}
+#first-id{color: orange;}
+
+<ul>
+    <li id="first-id" class="first-class" draggable=true>Combo</li>
+</ul>
+
+output will be in orange
+
+order of priority
+4. element selector
+3. class selector
+2. attribute
+1. id selector      = should be having only one in the web page
+
+
+
+
+
+3. Type
+
+we have 3 different ways that we can apply css to a file
+
+3. external <link rel="stylesheet" href="./style.css">
+2. internal <style> </style>
+1. inline   <h1 style=" ">Hello</h1>
+
+
+
+4. importance
+
+# the keyword that we can apply to any css rule, is important keyword
+
+color : red; # even if this is in the bestcase like (inline, id, last)
+color : green !important; # this could be worst but still be most prioritized 
+
+the result will be green due to its ! important keyword
+
+
+Another level that i need to be aware of
+
+Position
+Specificity
+Type
+important
+
+
+PSTI
+
+
+
+
+
+
+
+
+
+
+## Combining CSS Selectors
+
+how to target specific elements to style
+
+<p>Yellow Text</p>
+<div class="box inner-box">
+    <p>White Text</p>
+</div>
+
+p{
+    color: yellow;
+}
+.inner-box p{
+    color:white
+}
+
+now the p with this class will turn white = this is descendent selector
+
+Combine CSS Selectors
+
+1. Group rule
+
+selector, selector{
+    color: blueviolet;
+}
+
+seperating with coma
+group = apply to both Selectors
+
+using this we can group different ids, classes, etc.
+
+
+2. angle brackets >
+
+to select the child of another selector
+
+parent     child
+selector > selector {
+    color: firebrick;
+}
+
+eg :
+div inside a div
+the inner div is a child
+outer div is the parent
+
+this relation is only 1 generation deep
+
+.box > p{
+    color: firebrick;
+}
+
+
+
+3. Descendant Combination
+
+ancestor descendant
+selector selector{
+    color: blue
+}
+
+apply to descendent as long as it has that ancestor
+descendant include grandchild
+
+
+
+4. Chaining Selectors
+
+selectorselector {    # no space in between
+    color: seagreen;
+}
+chaining = apply where all selectors are true
+
+
+<h1 id="title" class="big heading">Hello World</h1>
+
+now
+
+h1#title.big.heading{
+    color: black
+}
+
+now it is super specific
+
+always start with 
+element -> class -> id
+
+
+5. Combining Combiners
+ancestor specific descendent from chaining
+
+selector selectorselector{
+    font-size: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+## CSS positioning
+
+Relative, Absolute, Fixed and Static positioning
+
+
+1. Static positioning
+
+HTML default flow
+
+flow as html - one on top of another
+
+position : Static
+left : 50px;        # doesnt do anything
+top : 50px;         # doesnt do anything, because it is static
+
+Just follows regular order
+
+2. Relative positioning
+
+position relative to default position
+pushed from left and the top
+
+position : relative;
+left : 50px;
+top : 50px
+
+left and top relative to the static position
+
+
+
+3. Absolute Position
+
+Position relative to nearest positioned ancestor = position property of the ancestor needs to be set to something
+OR 
+top left corner of website
+
+if the nearest ancestor is not positioned, then top left corner of website
+
+Z-index
+
+determines which element goes on top of which element in z axis 3d 
+
+this z index can be -ve and +ve
+
+
+
+
+
+4. Fixed positioning
+
+Position relative to top left corner of browser window
+
+this wont change even if you scroll through the website, because it will be fixed and will constantly be in relative to the screen 
+
+position: fixed;
+top: 50px
+left: 50px
+
+so it will be displayed to relative to top left corner
+
+position: fixed;
+right : 50px
+bottom : 50px
