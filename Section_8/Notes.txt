@@ -1,0 +1,282 @@
+CSS Display
+
+
+span element in between other elements
+
+by default it has different value for display property
+for span it is set to inline
+
+by default most elements were set to block = full width block
+
+3 different display values
+
+block, inline, inline-block
+
+
+1. display set to block
+
+element takes the entire width,
+the next element goes below it and not on the same line
+
+
+
+
+2. display set to inline
+
+span
+
+multiple elements go to the same line, untill we can no longer fill elements in that line
+
+for inline/span elements ==> we can't set the width and the height
+beause they will default to size of the content
+
+
+3. Inline-block
+
+block element allows us to set the height and width
+inline element allows us to go in the same line
+
+we have two elements that are both inline block with different sizes
+we can set the height and width of the two blocks, and they will go to the same line untill the line is website line is completed
+
+4. display = "None"
+then the element will be disappear,
+invisible button is a good example
+
+
+even if the height and width are mentioned inline display doesnt give a damn and stays in its rule as a regular one
+
+
+block wont share the width to any other element
+
+
+
+
+
+
+
+
+
+
+49. CSS Float
+
+Wrapping text around a particular element
+
+literally fitting text around other element , by floating the other element other than the 
+
+literally floating image here to left and right
+
+img{
+    float: left;
+}
+
+image will float to the left
+
+
+normal html will normal flow
+elements take full width, even paragraph elements
+
+but for wrapping different images we can use different selectors to set it to float around the text 
+
+
+now instead of paragraph we have a footer
+
+and footer needs to be seperated
+
+img{
+    float: left
+}
+
+footer{
+    clear:left
+}
+
+now the footer is cleared of the left float
+now it can go to its normal position and ignore anything that is floating around it
+
+
+if there are 2 floats on left and right
+to avoid both of them
+
+footer{
+    clear : both
+}
+
+damn keyword for both left and right
+
+
+
+
+
+
+
+50. Responsive Websites
+
+how it should change according to screen
+
+desktop, laptop, ipad, mobile phones, etc
+
+so making a responsive Websites
+
+4 main ways
+
+1. media queries
+
+2. CSS grid
+
+3. css flexbox
+
+4. external frameworks, eg : bootstrap
+
+
+
+
+
+
+1. Media Query
+
+putting this instead of selector in CSS
+
+@media (max-width: 600px) {
+    /*CSS for screens below or equal to 600px wide*/
+}
+
+2. CSS grid = there is completely seperate section for this
+
+    div containing multipe divs, ok bro that is a lot more deeper
+    display : grid , using css grid
+    fr = fraction
+
+    container grid class for a fiv
+    first card class 
+    remaining cards class divs
+
+    grid = columns and rows, 2d layouts
+
+
+3. Flexbox = seperate section
+
+1D layouts in horizontal and vertical
+
+display : flex, uses inbuilt flex display of css
+
+and flex : 1 dividing the width equally among all
+
+so basically flex is width or length whatever we choose
+
+so it is basically dividing the width and the height based on the ratios and percentages
+
+they are dependent i guess, dependent on the screen size of the user
+
+
+
+4. Bootstrap Framework
+
+it is called a framework because it is not part of inbuilt css
+
+bringing other people code that we want to use
+
+someone defined a whole bunch of classes in css
+
+bootstrap is built on top of flexbox
+
+it is a 12 div system
+if the full width of website is divided into 12 equal portions
+so class="card col-6" will take upto half of the width3
+
+and all the divisions will add up to 12 divisions and will occupy the entire width
+
+column6 = 50% width , if website is 1000px
+it will be 500px wide
+col3 will be 25% and vice versa
+
+there will be a seperate section for this
+
+
+
+
+
+
+51. Media queries
+
+the one in the parenthesis is called a breakpoint
+
+this current breakpoint says that at this particular width = less than or equal to 600px, then that styling should be used
+
+@media (max-width: 600px) {
+    h1{
+        font-size: 15px
+    }
+}
+
+
+eg:
+
+div{
+    background-color : blue;
+    height:200px;
+    width : 200px;
+}
+
+
+@media (max-width: 600px){    # 600px or below
+    div{
+        height : 100px;
+        width : 100px
+    }
+}
+
+
+so when the screen is minimized or opened
+in the mobile the div will become smaller
+
+it will override the default styling
+
+breakpoint = tolerate upto its max or min
+
+
+min-width : 600px
+width of 600px or more
+
+basically targetting bigger screens
+
+
+if a screen is 600px use max-width : 600px
+
+
+combine different break points for targetting specif screen size
+
+@media (min-width : 600px) and (max-width: 900px){
+    /*Styles for screen between 600px and 900px*/
+}
+
+this says min of 600px and max of 900px
+so screens in between 600 and 900px will be targetted
+
+
+
+Device
+
+alternative to screen = print
+
+use media query to target only when website is being printed and getting a different layout 
+
+targetting screens/ targetting print
+
+@media screen(orientation: landscape){
+    /*Styles*/
+    should apply to individual components just like the regular style in head section
+}
+
+more at mdn web docs
+
+
+
+
+
+
+text-align: justify;
+
+object-fit: cover;
+
+these are the new things that were used in the solution project
