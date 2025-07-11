@@ -1,0 +1,649 @@
+54. Display : Flex
+
+HTML table element
+
+<table>
+    <tr class="row">
+        <td class="col1">...</td>
+        <td class="col1">...</td>
+        <td class="col1">...</td>
+    </tr>
+</table>
+
+tr = table row 
+td = table data
+
+this a 3 column layout for the website
+
+
+
+.col1{
+    width : 25%
+}
+
+.col2{
+    width : 25%
+}
+
+.col3{
+    width : 40%
+}
+
+
+# represent data in a tabular form for tablular data
+
+not possible for styling for the website
+
+this 25,40% will be the percentage of the parent element 
+
+# after people stopped using the table for the layout,
+they started using the display property along with display inline block, for containerization
+and as long as they have the enough width along screen, they will share or they will be seperated to the next line
+
+but one problem
+
+they are not all in one line
+
+so they did some experiments, like coming up with
+
+position : absolute
+left : x%
+width : 25%, etc
+
+and it is not really flexible,
+
+when we have no other tools, hammer is going to do everything,
+
+semms like we have other tools
+
+such as float left and right and clear both,left, right stuff like that
+
+using float : left one after another, so they will horizontally stack up
+
+floats can be used to create very different and complicated layouts,
+but can be hard to debug,
+
+
+so it can't be used for creating layouts
+so use flexbox, grid, bootstrap
+
+something that is specifically used for Overall page structure
+
+
+===============================flexbox==============================
+
+You need to wrap your divs inside a container 
+then target that container in css 
+
+then set its display to flex
+
+flex = block display
+
+<div class="container">
+    <div class="one"><p></p></div>
+    <div class="two"><p></p></div>
+    <div class="three"><p></p></div>
+</div>
+
+.container{
+    display : flex   # similar to inline, block, inline-block, none = the element will not be visible
+    gap : 10px
+}
+
+if display is flex, the the rules will be changed from previous display
+
+
+Note : Different elements by default will have different display values
+
+div = full width block
+
+span = inline element
+
+
+when different elements are inside a flexbox container, their previous display values will be ignored 
+and everything will be layed out by flex box
+and width of each element inside flexbox is based on the content size
+
+so it will make it all in one line, by default obviously
+
+gap : 10px / 1rem
+
+
+
+we can also set the display : inline flex
+
+similar to inline block 
+inline flex allows other elements to occupy the same width/line
+
+perplexity explaination
+
+The difference between display: flex and display: inline-flex is how the flex container itself behaves in the page layout—not how its children are laid out, which is the same for both.
+
+display: flex
+The container behaves like a block-level element.
+It takes up the full width available and starts on a new line.
+Multiple flex containers will stack vertically, each on their own line.
+Example: like a <div> by default.
+
+display: inline-flex
+The container behaves like an inline-level element.
+It only takes up as much width as its content needs.
+Multiple inline-flex containers can sit side by side on the same line, just like <span> or display: inline-block.
+The children inside are still laid out using flexbox.
+In both cases, the children of the container are arranged using flexbox. The difference is only in how the container itself fits into the surrounding layout.
+
+whatever the display is the children of the container will still be arranged side by side
+detailed explaination : 
+
+The **divs inside a flex or inline-flex container** are called **flex items**. Their layout is controlled by the flexbox model, which **overrides their default block or inline behavior**. 
+
+- **Inside a flex or inline-flex container**, all direct children (like your divs) are laid out according to the flexbox rules, not as normal block or inline elements[3][2].
+- By default, flexbox arranges these items in a row (side by side), regardless of whether they are block or inline elements in normal flow[2][3].
+- The difference between `flex` and `inline-flex` only affects how the **container itself** behaves in relation to its siblings, not how its children (the flex items) are displayed[2][1][8].
+
+> “flex and inline-flex both apply flex layout to children of the container... The default ‘flex-direction’ property is set to ‘row.’ This will display the children side-by-side.”[2]
+
+> “Flexbox is a one-dimensional layout model for distributing space between items and includes numerous alignment capabilities.”[3]
+
+**Summary:**  
+The divs (flex items) inside a flex or inline-flex container are not “inlined” in the traditional sense. Instead, they are arranged by the flexbox algorithm, which can lay them out in a row or column, align, justify, and space them, regardless of their original display type[2][3][5].
+
+[1] https://teamtreehouse.com/community/does-display-flex-change-block-elements-to-be-inline-elements
+[2] https://stackoverflow.com/questions/27418104/whats-the-difference-between-displayinline-flex-and-displayflex
+[3] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox
+[4] https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+[5] https://stackoverflow.com/questions/62398805/how-are-inline-elements-treated-differently-when-theyre-flex-items-grid-items
+[6] https://www.youtube.com/watch?v=Xo3vyx2KSK8
+[7] https://blog.devgenius.io/css-display-flex-vs-block-inline-and-inline-block-explained-5fa588a3a960?gi=7b145cfbaecf
+[8] https://www.geeksforgeeks.org/what-is-the-difference-between-inline-flex-and-inline-block-in-css/
+[9] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container
+[10] https://www.w3schools.com/css/css3_flexbox_container.asp
+
+
+
+
+
+
+
+
+
+
+55. Flex Direction
+
+all the elements in the flex are stacked horizontally by default
+
+by default 
+flex-direction : row
+
+they will be layed out along the row
+
+they are going to stack in the same row
+
+flex-direction : row
+main axis is now from left to right = horizontally
+
+cross axis = perpendicular from main axis
+now it is from top to bottom
+
+
+when 
+flex-direction : column
+then items go from top to bottom
+main axis is now from top to bottom
+cross axis is from left to right
+
+
+now this main and cross axis matters
+
+flex-basis: 100px;
+each element expansion along the row or column
+
+flex basis will expand the elements
+
+it will expand the height (main axis) when flex-dir : is set to column
+
+it will expand width when fd is row
+
+flexing along main axis
+row : width
+column : height
+
+flex-basis will work on each element
+
+unlike the flex-direction and display : flex
+which are actually applied on the container class
+i mean on the parent div
+
+
+flex-basis : 100px or whatever needs to be applied on the children divs individually
+
+
+inline-flex will cause its children (the flex items) to share space along the main axis,
+
+i mean both the inline flex and the flex will only share the space along their respective main axis
+
+
+
+
+
+
+56. Flex layout
+
+Align, justify and wrap
+
+creating layouts
+
+
+child = flex-item 
+
+
+order = property that needs to be applied on the child
+
+like this
+
+.green{
+    order = 1
+}
+if .green is a child of flexbox
+then it will go to the end of the flex ordering
+
+default value is 0
+
+and the biggest value will go to the last 
+
+
+flex-wrap property
+useful when the horizontal space is over
+
+because in fd : row
+when the space is over the items will just be pushed to end
+and will not be pushed to the next line
+
+by default it is 
+flex-wrap: nowrap;
+
+then the website wont be as responsive as before and 
+the items that are not fitting in the screen will be pushed of the screen
+
+
+when it is set to be wrap
+flex-wrap : wrap
+
+then the elements that cant fit in the line will be sent to next line and will still be responsive
+
+flex-wrap is a property set on the parent container 
+tells how all children should behave or wrap around
+
+
+another option
+
+flex-wrap: wrap reverse
+
+it is reverse
+
+instead of starting from the top left 
+it will start from bottom left corner
+
+and wraps similarly
+
+
+
+
+
+
+
+justify-content: 
+
+it is set on the parent container
+puts the distribution along the main axis
+
+options 
+
+justify-content: flex-start
+everything goes stacked up to the left, to the start
+
+justify-content: flex-end;
+everything goes bunch in the right(to the end)
+
+now it will be only work when all the width of the screen is not taken,
+it wont work when all the width is not taken
+
+
+justify-content: center
+
+centering items in css,
+very easy to center all the elements along the main axis
+
+vertically center when flex direction is set to column
+horizontally center when fd is set to row
+
+justify-content : space-between;
+gives spacing between the elements
+if extra space is available then it will be spaced evenly
+
+justify-content : space-around;
+will give some space before the first element 
+and some space after the last element
+
+justify-content : space-evenly;
+will give the space between the elements evenly
+it will evenly give the spaces between all the elements
+including the starting and the ending elements
+evenly spaced
+
+
+
+
+align-items: flex-start;
+
+options
+
+this is a position of the item
+this sets the distribution along the cross axis
+
+it is a property that needs to be set on the parent element/div/container
+
+container will only take the height of the items
+
+for align-items: need to work
+
+so we set height : 70vh, height of the window = 70%
+
+so it will be moving and have option along the height
+
+align-items: flex-start
+it will start from top left corner (bunch up on the top)
+
+align-items : flex-end
+it will bunch up in the bottom
+bottom left corner
+
+align-items: center
+in the sense of the cross axis it will center in a single dimension
+
+align-items: stretch
+it will stretch the items along the cross axis
+
+
+the align-items will work only if the flex-wrap is set to nowrap
+or else it won't come into effect
+
+
+
+now aligning everything in the container to the center, but one particular element should be on the top
+
+so align-self comes into picture
+align-self : will be kept onto the child item directly
+align-self : flex-start;
+will put it in the starting
+
+
+
+align-content : 
+
+similar to align items, 
+    but it will only work when flex-wrap is set to wrap
+and height should be set to viewport height
+
+now responsiveness and aligning 
+using
+
+flex-wrap : wrap;
+align-content : center;
+height : 70vh
+
+
+
+
+
+
+
+
+
+
+
+57. Flex sizing
+
+size the items in a flexbox container
+shrinking and growing in responsive websites
+
+the flexbox algorithm to automate the responsiveness
+is a priority list
+
+content width < Width(main-axis) < flex-basis(main-axis) < min-width/max-width
+
+flex-basis : width = row based flex box
+             height = column based flex box
+
+
+Content width is the the horizintal space that the content is taking to be there word by word
+if flex box shrinks then the text will stack and then goes one on top of each other
+it is minimum context width
+
+
+so when there are multiple elements/divs in the flexbox container
+when it shrinks the minimum width of the parent element will be the 
+length of the largest word in the child item
+
+max-width : longest line in the child element
+min-width : longest word in the child element
+
+
+setting the width manually on each of the items
+needs to be set on the child item directly
+
+
+<div class="container">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+now targetting all the child divs by 
+.container div{
+    width : 100px;
+    flex-basis : 200px;
+}
+
+
+descendent combiner i used here
+
+now that 100px is applied on all the child div
+now all the divs have the same width
+
+if there is enough space all elements will share the same amount of width
+if there is no enough space during chainging screen sizes then it will fall back 
+to regular flexbox sizing algorith of setting/trying to set it to the largest word in the child element
+
+if there is nothing set to the item
+then the flexbox algo will look at the length of the entire line
+then it will be the content width
+
+but looking for the width on the child element is a priority
+
+
+now coming to flex-basis : which is acting along the current main axis
+current flex direction is row by default and the main axis is horizontal
+and flex basis will act along the horizontal direction
+
+according to the priority list the width in the first line will be overrided by the flex-basis 
+
+and all elements will have the width of 200px
+
+again when shrinking for responsiveness then it will focus on the minimim width as the length of the largest word in child element
+
+when flex basis is set it will ignore the content width(line width) and the width(the one we manually set)
+
+now min-width and max-width
+
+max-width : all of the content occupying the ideal state 
+everything on one line
+
+min-width : the length of the longest word in the current font size in the child item
+
+
+it is possible to set everything manually and ignore the content 
+
+flex-basis : 200px;
+max-width : 100px;
+
+now flex-basis > max-width
+
+now max-width determines how much the item is allowed to grow to
+so flex-basis will be ignored as fb is more than allowed max-width
+
+
+but when 
+
+flex-basis : 50px;
+max-width : 100px;
+
+here flex-basis < max-width;
+and max width will be ignored as flex-basis is in limit of the max-width
+
+so when the flex-basis and max-width are there the one with the minimum value will be choosen
+
+but in the priority first flex basis will be considered and compared to the maxwidth
+
+
+min-width : 
+determines how small the items can shrink to
+
+
+<div class="container">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+now targetting all the child divs by 
+.container div{
+    min-width : 300px;
+    flex-basis : 200px;
+}
+
+now min-width > flex-basis
+
+and the greater of flex basis and min-width will be choosen
+so it wont even shrink if the minimum width is considered big 
+
+
+
+lot of flexing part of flexbox will come from the ability to grow and shrink
+
+so we should first set them to 0
+flex-basis : 100px;
+flex-grow: 0;
+flex-shrink : 0;
+
+now the items wont even change the size at all and the website wont be responsive
+when the website is minimized the elements will go out of the screen view 
+because no shrink and grow
+
+when 
+flex-basis : 100px;
+flex-grow : 1;
+flex-shrink : 0
+
+now the items will start at 100px, they can grow
+now it will just increase and fill the entire screen width
+when screen is minimized then it will reduce the flex-basis amount of 100px
+
+but again when we are maximizing the screen it will continue to grow taking all the screen width
+
+
+now when 
+flex-basis : 100px;
+flex-grow : 0;
+flex-shrink : 1;
+
+now all the elements will be at 100px and wont grow beyond the size
+and the min width will be the flex box algo
+
+by default the flexbox has 
+flex-grow : 0;
+flex-shrink : 1;
+
+when both are 1
+
+flex-basis : 100px;
+flex-grow : 1;
+flex-shrink : 1;
+
+now it will take as much space as possible and
+during shrinking it will take as much less space as possible
+
+it will grow to max width and shrink to the minimum width
+if flex basis is not set then it will take the default flexbox algo for min and max width
+
+
+default for flex basis is auto 
+flex-basis : auto
+
+auto looks at the amount of content
+
+for giving equal flex basis to all elements 
+the auto can be switched of by saying flex-basis : 0
+
+short way 
+for all of the three
+
+flex : 1 1 0
+grow shrink basis in order
+
+is same as 
+flex : 1;
+
+which means grow = shrink = 1 and basis = 0
+
+these 1,0 are similar values like any other numbers
+like flex : 10 or 17 or any other +ve integer is possible
+
+even if the screen is shrinked or expanded they needs will follow the same relation
+
+
+<div class="container">
+    <div class="red"></div>
+    <div class="blue"></div>
+    <div class="green"></div>
+</div>
+
+in 
+<style>
+    .red{
+        flex : 1
+        here grow and 1 is shrink 1
+    }
+    .blue{
+        flex : 2
+        both g & s are 2
+
+    }
+    .green{
+        flex : 3
+    }
+</style>
+
+this flex keyword goes directly into the child element
+
+setting the ratio during responsiveness
+
+
+
+
+
+
+
+
+
+
+58. Pricing Table project
+
+so the align items and align content will be applied on the parent and will act on the child items
+
+
+
+
+
+# when list-style for the li is set to none, then even the numbering and the bullet poiints will be gone
+and it will be plain
