@@ -1,0 +1,443 @@
+CSS Grid
+a css toll that will be easier to make 2 dimensional layouts
+
+flexbox = align content along 1 dimensional line
+
+grid = laying out content along 2d grid
+
+one of the containers in the grid can be flexbox
+grid can also be used for making 1d layouts
+even if the grid is layed out in 1d then when compressed it will naturally tend to become a 2d like getting into the structures of row and column
+when compressed even the gaps between the elements are equal by default i guess
+
+
+<div class="container"> container act as grid
+    <p>...</p>
+    <p>...</p>
+    <p>...</p>      these 4 are grid items
+    <p>...</p>
+</div>
+
+.container{
+    display : grid;
+    grid-template-columns : 1fr 2fr;
+    grid-template-rows : 1fr 1fr;
+    gap : 10px
+}
+
+fr = fractional ratio
+columns = 1 : 2 ratio
+rows = 1 : 1  = two equal fractions
+and a gap of 10px between columns and rows
+
+
+
+
+
+
+
+
+61. Grid Sizing
+
+size our columns and rows 
+
+if there are k items in the grid
+then there will always be m rows and n columns
+
+8 items from 2 rows and 4 columns
+12 items from 3 rows and 4 columns
+
+eg:
+
+
+Fixed Size : 
+
+<div class="grid-container"> container act as grid
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>      these 4 are grid items
+    <div class="grid-item">4</div>
+</div>
+
+.grid-container{
+    display : grid;
+    grid-template-rows : 100px 200px;
+    grid-template-columns : 400px 800px;
+    # i guess this will automatically make squared grid i mean 2*2
+}
+
+first row is 100px height
+second row is 200px height
+
+first column in 400px wide
+second column is 800px wide
+
+now the screen is not responsive 
+they are fixed to the specified sizes
+
+instead of px we can also use rem like 1rem, 2rem
+
+combining the rows and columns into a single line
+
+.grid-container{
+    display: grid;
+    grid-template : 100px 200px / 400px 800px;
+}
+
+rows first, then columns
+
+
+Auto Size 
+
+another way of defining grid template rows and columns  :  auto keyword
+
+.grid-container{
+    display : grid;
+    grid-template-rows : 100px auto;
+    grid-template-columns : 200px auto;
+}
+
+this auto keyword gives responsiveness
+
+each row is try to fit 100% of the horizontal available space
+
+first column is 200px wide, next column should be auto
+2nd column needs to be auto to take 100% of the width
+
+100px height
+auto @ rows = fit content
+will try to fit in the content height(min)
+
+200px wide
+auto @ columns = fit 100%
+will try to occupy the available width(max)
+
+this auto size grid will be shrinking and expanding = responsive
+
+
+
+Fractional Sizing
+
+.grid-container{
+    display : grid;
+    grid-template-rows : 1fr 2fr;
+    grid-template-columns : 1fr 2fr;
+}
+
+rows are in the height ratio of 1 : 2
+for first and second row
+
+columns are in the width ratio of 1 : 2
+for first and second column
+
+here the height and width needs to be set to some value or else the complete width will be taken, and explanded with white spaces
+content size for vertical(height)
+
+it is responsive
+
+
+
+Min Max size
+
+checking grid responsiveness, especially in the horizontal
+horizontal is width
+
+minmax
+
+.gridcontainer{
+    display : grid;
+    grid-template-rows : 200px 400px;
+    grid-template-columns : 200px minmax(400px, 800px)
+}
+
+minmax(400px, 800px) = min of 400px and max of 800px
+
+when we have extra space on the width 
+we want to give the second column more space
+like min of 400 and max of 800px
+
+it is reponsive
+
+
+
+
+
+
+Repeat
+it will repeat
+
+repeat(repetitions_count, size)
+
+.grid-container{
+    display : grid;
+    grid-template-rows : repeat(2,200px);
+    grid-template-columns : repeat(2, 100px);
+}
+
+is the same as
+
+.grid-container{
+    display : grid;
+    grid-template-rows : 200px 200px ;
+    grid-template-columns : 100px ;
+}
+
+
+case 1 
+
+when there are 4 items and the css grid code is given for 6 items 
+then it will fill the rows horizontally before going to the next row
+in this case first 3 will be filled and then it will go to the next row and fill 1 and remaining will be blank
+
+
+case 2
+
+when there are 5 items and css only defines for only 4 items
+
+<div class="grid-container"> container act as grid
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>      these 4 are grid items
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+</div>
+
+.grid-container{
+    display : grid;
+    grid-template-rows : 200px 200px;
+    grid-template-columns : 200px 200px;
+}
+
+like this scenario
+templated (grid) row and column will be for only 2*2 items
+
+then the extra item will be automated to content height and existing column sizes
+
+
+
+if incase the divs will be added in the future then the css for grid should be automated
+
+grid-auto-rows : 300px;
+will work when the specified grid template is not sufficient
+
+when new rows are added
+there is similar one for the columns
+grid-auto-columns : 300px
+now the width will be same as the existing column width in which the element is in
+
+
+
+
+
+
+
+
+
+
+62. Grid Placement - How to layout items in the grid
+
+grid-container is a div
+items inside a grid are grid items
+
+rows&columns = collectively known as tracks
+
+row tracks and column tracks
+
+we create and size these tracks using grid-template-rows and grid-template columns
+
+within the intersection of tracks there small units called grid cells
+multiple cells to create grid item
+
+lines that seperate our tracks - horizontal and vertical lines - grid lines
+grid lines can be controlled by gap property
+they are just lines for layout
+
+with all those combined together in grid
+lines, tracks, cells, container, items @ grid
+all of them together create a layout
+
+
+Code :
+
+1 container and 3 items
+<div class="container">
+    <div class="item cowboy">cowboy emoji</div>
+    <div class="item astronaut">astronaut emoji</div>
+    <div class="item book">book emoji</div>
+</div>
+
+.container{
+    height : 100vh;
+    display : grid;
+    gap : 3em
+    grid-template-columns : 1fr 1fr 1.5fr;
+    grid-template-rows : 1fr 1fr
+}
+
+by default grid takes all the width and only the content required height 
+one item per cell
+so by setting height to 100vh it will take the complete screen
+
+now the bottom track is unoccupied
+
+so the first row will be filled
+
+centering the items inside the grid 
+it can be done using flexbox
+
+
+.cowboy{
+      background-color: #00b9ff;
+      grid-column: span 2;
+    }
+
+here using span 2 we can occupy 2 cells in that track(horizontally) in that track
+starts at where the div is supposed to be
+
+for span to work seems like the minimum is 1 or 0 and max is the no. of columns
+
+grid-column-start : 2
+grid-column-end : 4
+
+will determine where the item will start and where they will end
+
+
+and at the bottom there are -ve values for the lines
+
+here when using
+grid-column-start and grid-column-end = no need of using the 
+grid-column : span 2
+
+using grid-column-start and grid-column-end is more flexible
+
+and it is suggestable to use 
+only +ve no. for grid-column-start
+only -ve no. for grid-column-end
+
+for more check chrome dev tools elements->styles
+
+.cowboy{
+    background-color: #00b9ff;
+    grid-column-start : 1;
+    grid-column-start : -2
+}
+
+is same as the above one using span
+
+or else just use +ve no. like a regular person
+
+.cowboy{
+    background-color: #00b9ff;
+    grid-column-start : 3;
+    grid-column-start : 1
+}
+
+same as the above 2
+it flips but still it will start at 3 and ends at 1, spanning over 2 cells
+
+.cowboy{
+    background-color: #00b9ff;
+    grid-column-start : span 2;
+    grid-column-end : auto;
+}
+
+will be the same as the previous or the 1st one
+starts at the default position and then explands over 2 cells(spanning/span)
+
+# now the same thing and rules go for spanning or sizing over the grid in a row
+# this is vertical spanning
+grid-row       : span no.
+grid-row-start : starting line
+grid-row-end   : ending line
+
+grid-column/row is in short for grid-x-start/grid-x-end
+
+
+
+similar to order in flexbox for ordering the items in flexbox
+where initially all the elements in the flexbox are having order of 0
+but when we set this order on the child or the flexbox item manually of more than the default that item tends to go to the right side of the flexbox
+
+hello there, same goes for the grid
+
+
+instead of changing the order 
+we can also change its positions
+like 
+
+grid-column-start : 1
+grid-column-end : 3
+grid-row-start : 2
+grid-row-end : 3
+
+
+
+    .astronaut {
+      background-color: #03989E;
+      grid-column-start : 1;
+      grid-column-end : 3;
+      grid-row-start : 2;
+      grid-row-end : 3;
+      grid-column: span 2;
+    }
+
+    just like coordinates
+
+    instead of that 
+    grid-area : 2/1/3/3
+    row-start/column-start/row-end/column-end
+
+
+now dis-advantages of using grid-area
+if one element in the grid uses grid area then 
+all the elements in the layout needs to grid area
+
+so anythin can be done using grid area
+like specifying the coordinates where we want to locate or put things in map
+
+grid allows you to overlay items onto other items
+
+so we can position items on top of each other
+
+damn, just as expected we need to use the grid-area on all the items individually
+(lot of thinking)
+
+
+
+# another trick with the colors
+
+eg there is a color
+#E58331 is a color
+now the first 6characters are representing the color
+#E5833180 and the last 2 digits or after 6 digits are representing the transparency of that color
+
+this last 2 digits = alpha
+
+
+
+
+learnings from grid garden
+
+grid-column: 4/6
+similar to grid area
+start/end
+
+even this works
+grid-column : 2/span 3;
+start at 2 and span over 3 cells
+
+
+grid-template-columns : 50%
+
+grid-template-columns: 20% 20% 20% 20% 20%; and grid-template-rows: 20% 20% 20% 20% 20%;
+
+multiple length units works
+grid-template-columns : 100px 3em 40%;
+
+
+
+gap color cant be assigned instead the background color can be assigned to them
+as they take the lines
+
+white 1 can be spanned over 4 cplumns if designed carefully
+

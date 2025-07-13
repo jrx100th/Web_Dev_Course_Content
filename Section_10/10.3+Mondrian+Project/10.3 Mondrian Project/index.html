@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mondrian Project</title>
+  <style>
+    /* 
+    Write your CSS here 
+    Gap Colour: #000
+    White: #F0F1EC
+    Red: #E72F24
+    Black: #232629
+    Blue: #004592
+    Yellow: #F9D01E
+
+    For dimensions, see dimensions.png image.
+    HINT: Remember you can't change the properties of grid lines.
+    But grid lines are transparent!
+    */
+
+    .flex_1{
+      display: flex;
+      justify-content: center;
+    }
+
+    .grid_1{
+
+      display: grid;
+      height: 748px;
+      width: 748px;
+      gap: 9px;
+      grid-template-columns: 320px 361px 50px;
+      grid-template-rows: 414px 130px 175px 20px;
+      background-color: #232629;
+      border: none;
+      padding: none;
+      margin: 0;
+    }
+
+    .big_red{
+      background-color: #E72F24;
+      height: 414px;
+      width: 320px;
+    }
+
+    .white_1{
+      background-color: #F0F1EC;
+      grid-column: span 2;
+    }
+
+    .white_2{
+      background-color: #F0F1EC;
+      grid-row: span 2;
+    }
+
+    .white_3{
+      background-color: #F0F1EC;
+      grid-row: span 2;
+    }
+
+    .white_4{
+      background-color: #F0F1EC;
+      grid-row: span 2;
+    }
+
+    .flex_2{
+      grid-column: span 2;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .white_last{
+      background-color: #F0F1EC;
+      order: -1;
+      align-self: flex-start;
+      width: 320px;
+      height: 20px;
+    }
+
+    .yellow{
+      background-color: #F9D01E;
+      width: 198px;
+      border-left: 9px solid black;
+      padding-right: 10px;
+      
+    }
+
+    .black{
+      background-color: #232629;
+      width: 153px;
+     
+    }
+
+    .blue_1{
+      background-color: #004592;
+      border-bottom: 10px solid black;
+    }
+
+
+    
+    
+
+  </style>
+</head>
+
+<body>
+  <!-- Write your HTML here -->
+  <div class="flex_1">
+    <div class="grid_1">
+      <div class="big_red"></div>
+      <div class="white_1"></div>
+      <div class="white_2"></div>
+      <div class="white_3"></div>
+      <div class="blue_1"></div>
+      <div class="white_4"></div>
+      <div class="flex_2">
+        <div class="white_last"></div>
+        <div class="yellow"></div>
+        <div class="black"></div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
