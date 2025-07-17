@@ -1,0 +1,154 @@
+69. Understanding Color theory
+
+red - energy
+yellow - attention grabbing
+
+green - freshness, growth, safety
+
+blue - stability trust serenity
+purple- royalty, wealth, femenity
+
+which colors to mix/combine
+
+color wheel
+analogous color
+
+side by side colors on the wheel = for logo
+not for standing out
+
+complementery color pallete is for outstanding 
+not for style text and text background with it 
+
+equilateral triangle for triadic color pallete
+quadrilateral/square
+
+use Adobe color for the color combination
+colorhunt.co 
+
+Liebe yogurt has consistent color scheme
+
+
+
+
+
+
+
+
+
+70. Typography and how to choose font 
+
+Fonts matter in the sense of the context
+
+serif family = have feet
+inspired from marble carvings
+so it can be used for magazine for architectural designs
+
+and they are divided into more sub families
+
+we can estimate how old is an font be the difference between the thickest and thinnest part of letter
+so if the difference is big then it means the font is modern
+and vice versa
+
+
+different fonts have different moods
+
+serif = traditional stable respectable
+
+sans-serifs : novel approachable contemporary
+Humanist sub family
+for body text
+
+2 fonts in a single section/design is suggested
+
+
+
+
+
+
+
+
+
+
+
+71. Manage attention with UI 
+
+
+humans get attracted to bigger, bolder, squarer things
+can be used to build 
+
+1. Hierarchy
+    through size
+            color 
+
+2. Layout 
+    length of the text div should not be too long or too short
+    it should be in the medium size
+
+3. Alignment
+    Alignment relative to each other
+    center align is lor better
+
+    or both starting point for title and body should be the same
+    that is a strong Alignment
+
+    have less alignment lines 
+
+4. White Space
+    putting white space around the objects
+    spacing things
+
+5. Audience
+    Adults and children
+    Design should fit for the Audience
+
+
+
+
+
+
+
+
+
+
+
+
+72. User Experience(UX) Design
+
+1. Simplicity
+
+
+2. consistent
+make the components always consistent
+across multiple web pages
+
+3. Reading Pattern
+
+F Pattern
+start at the top left corner and then read the line and go down 
+
+
+Z Pattern
+when someone is browsing quickly
+like social media
+facebook uses it
+
+
+4. All platform design
+
+both mobile and desktop
+handle the text size accordingly
+
+try to use the available space in a aesthetic manner.
+the website needs to rearrange itself when it is being rendered on different screen sizes
+
+
+Get feedback
+
+5. (Don't) Use your powers for evil
+
+like highlighting the button of higher price
+alog suggesting things that we dont need 
+
+adding hairlines - 1 pixel curved line
+and you click and the advertisers make money of each click
+
