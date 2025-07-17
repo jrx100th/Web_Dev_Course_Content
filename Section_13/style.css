@@ -1,0 +1,24 @@
+.section001{
+    background-color: #E67514;
+    height: 63.72vh;
+}
+
+.abovename{
+    background-color: #FFC107;
+    height: 3em;
+}
+
+.name{
+    color: #212121;
+    font-family: "Staatliches"
+}
+
+.belowname{
+    background-color: #FFC107;
+    height: 3em;
+}
+
+.nameholder{
+    display: flex;
+    justify-content: center;
+}

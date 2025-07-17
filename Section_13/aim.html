@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Portfolio</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #0077ff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #0056b3;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    /* Header with Flexbox */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 2rem;
+      color: #222;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 3rem 0;
+      align-items: center;
+    }
+
+    .hero-text {
+      flex: 1 1 400px;
+      padding-right: 2rem;
+    }
+
+    .hero-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #111;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-text a {
+      background-color: #0077ff;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      font-weight: 600;
+      display: inline-block;
+      box-shadow: 0 4px 8px rgba(0, 119, 255, 0.2);
+    }
+
+    .hero-text a:hover {
+      background-color: #0056b3;
+      box-shadow: 0 6px 12px rgba(0, 86, 179, 0.3);
+    }
+
+    .hero-image {
+      flex: 1 1 300px;
+      max-width: 350px;
+      text-align: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Projects Section with CSS Grid */
+    section.projects {
+      margin-bottom: 4rem;
+    }
+
+    section.projects h3 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #222;
+      text-align: center;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      object-fit: cover;
+      height: 180px;
+    }
+
+    .project-card h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+      color: #0077ff;
+    }
+
+    .project-card p {
+      flex-grow: 1;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .project-card a.btn {
+      align-self: start;
+      background-color: #0077ff;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-card a.btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 1px solid #ddd;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .hero {
+        flex-direction: column;
+      }
+
+      .hero-text {
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav ul li {
+        margin-left: 0;
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>jrx100th</h1>
+      <nav>
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Hi, I'm Jrx100th</h2>
+        <p>I'm a passionate web developer who loves creating beautiful and functional websites using HTML, CSS, Flexbox, Grid, and Bootstrap.</p>
+        <a href="#contact">Get In Touch</a>
+      </div>
+      <div class="hero-image">
+        <img src="./profile_oicture.jpg" alt="photo" height="200px" width="200px" />
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <h3>My Projects</h3>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="https://via.placeholder.com/400x180.png?text=Project+1" alt="Project 1" />
+          <h4>Project One</h4>
+          <p>A brief description of your project, the technologies used, and what it accomplishes.</p>
+          <a href="#" class="btn" target="_blank" rel="noopener">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <img src="https://via.placeholder.com/400x180.png?text=Project+2" alt="Project 2" />
+          <h4>Project Two</h4>
+          <p>Details about the project that showcase your skills and creativity.</p>
+          <a href="#" class="btn" target="_blank" rel="noopener">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <img src="https://via.placeholder.com/400x180.png?text=Project+3" alt="Project 3" />
+          <h4>Project Three</h4>
+          <p>A quick summary of what you did and the challenges you overcame.</p>
+          <a href="#" class="btn" target="_blank" rel="noopener">View Project</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="about" style="margin-bottom: 4rem;">
+      <h3>About Me</h3>
+      <p style="max-width: 700px; margin: 1rem auto; color: #555; font-size: 1.1rem;">
+        I'm a self-taught web developer with a passion for building user-friendly and responsive websites. I enjoy working with modern CSS techniques like Flexbox and Grid and continuously improving my skills with Bootstrap and JavaScript.
+      </p>
+    </section>
+
+    <section id="contact" style="margin-bottom: 4rem; text-align: center;">
+      <h3>Contact Me</h3>
+      <p>Feel free to reach out to discuss projects or opportunities.</p>
+      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <p>Phone: +123 456 7890</p>
+      <p>
+        Social: 
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a> |
+        <a href="#" target="_blank" rel="noopener">GitHub</a> |
+        <a href="#" target="_blank" rel="noopener">Twitter</a>
+      </p>
+    </section>
+
+  </div>
+
+  <footer>
+    &copy; 2025 jrx100th. All rights reserved.
+  </footer>
+</body>
+</html>
