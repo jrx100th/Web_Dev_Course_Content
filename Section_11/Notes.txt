@@ -1,0 +1,335 @@
+Bootstrap framework - external layout systems
+
+made by two twitter developers
+had pre made css files
+had 12 column layout systems, build on top of flexbox
+good for multiple devices, mobile first approach
+
+here we need to know which classes we need to use
+
+
+frameworks - premade css files
+bootstrap is completely opensource
+
+two most popular external css frameworks are 
+boorstrap
+foundation
+.....also tailwind
+
+
+disadvantages
+not customizable to minute detail
+
+advantages
+can be used for mobile devices website, quick
+
+
+we can use the link 
+cdn = content delivery network
+
+<link > in the head section
+<script> just at the end of the body section
+
+wow it just has the code for everything and we can just bring it and then customize the image and the text according to our needs
+
+if we have external css then
+the external css link should be placed after bootstrap link
+then the bootstrap classes can be overrided
+
+
+
+
+
+
+
+
+
+
+
+
+65. Bootstrap Layout - Understanding the 12 column layout systems
+
+1. we need a container div 
+    2. we need a row div
+        3. inside the row div we need column div to put the content into
+
+so there will be just 12 columns
+
+<div class="container">
+    <div class="row">
+        <div class="col">Hello</div>
+    </div>
+</div>
+
+multiple columns will layed out inside the row
+it can autofit
+every column it will give equal spacing and occupy the entire wdith of the container
+
+and this bootstrap container is responsive
+different size for different sized screens
+so there are several break points
+
+so this.container will become a keyword
+-sm, -md, -lg, -xl, -xxl, -fluid
+can be customized according to needs
+and they are just referring to the width of the screen 
+
+
+.container = will give some margin around the line
+.container-fluid will have edge to edge behavior
+and these two are the most used ones 
+
+
+sized-columns
+classes as 
+col-2
+col-6
+col-4
+col-2
+col-10
+
+so one row contains 12 columns(equal sized)
+
+col-2 will occupy 2/12 of the screen width
+col-6 will occupy 50% of entire screen
+extends and occupies the desired number of columns
+
+from col-1 to col-12 are valid
+
+<div class="container">
+    <div class="row">
+        <div class="col-2">Hello</div>
+        <div class="col-4">Hello</div>
+        <div class="col-6">Hello</div>
+    </div>
+</div>
+
+now it will only take the proportions of the width 
+in 2:4:6 manner
+height will still be the same as the grid
+like taking only upto the content height
+
+
+bootstrap has predtermined breakpoints
+based on common screen sizes
+
+extra-small : narrow phone screen/foldable phones
+small = mobile devices
+medium = tables
+large = laptop
+extra large = desktop
+extra extra large = TV 
+
+directionality of these phones
+
+col-sm-2 = refers to screens that are greater than sm(small) dimension like (min-width : small)
+no need of media query
+
+
+col-sm-2
+col-sm-4
+col-sm-6
+
+now for a min of screen size small the ratios will be 2 : 4 : 6
+below the size of small 
+it will try to give the div 100%, equal proportions
+
+col-sm
+col-sm
+col-sm
+if the ratios are not defined then they take equal sizes of ratios
+it is auto distribution
+
+
+if col-sm-2 or col-sm are reduced to less than the mobile size
+
+all of the div go to 100% width 
+and go one top of another
+
+as if they are just having class="col"
+stacking on each other
+
+
+in a single div we can also have multiple breakpoints
+
+col-sm-12 col-md-8 col-lg-4
+
+means on large devices take 4/12 column space
+means on medium devices take 8/12 column space
+means on small devices take 12/12 column space
+
+priority from right 
+so the order needs to be mentioned from right to left
+if left to right then it needs to be increasing
+
+
+in addition to having multiple breakpoints in each div
+
+mix and match the types of definition
+
+
+col-2    col-4    col
+
+now col-2 will take 2/12
+col-4 : 4/12 of the width
+col will take entire remaining width available in the screen
+
+
+
+learnings from
+appbrewery.github.io/bootstrap-layout/
+
+exercise - 2
+
+  <!-- Modify the HTML below to make the blue boxes behave like the red ones. -->
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 col-10">Column 1</div>
+    <div class="col-lg-3 col-sm-6 col-10">Column 2</div>
+    <div class="col-lg-3 col-sm-6 col-10">Column 3</div>
+  </div>
+      
+        during sizing start with the largest size and then go to smallest
+        for smaller than sm just leave is and use regular col-number
+
+by default as they get small they stack up on each other
+
+
+
+
+
+
+
+
+
+
+66. Bootstrap components
+prebuilt and pre styled components
+like buttons, cards, carousels
+
+
+1. Buttons
+
+different  color classes for different buttons
+primary = blue
+secondary = black/grey
+success = green
+danger = red
+warning = yellow
+info = light blue
+light = white
+dark = black
+
+typical syntax
+
+<button type="button" class="btn btn-primary">Primary</button>
+
+<button type="button" class="btn btn-success">Ok</button>
+<button type="button" class="btn btn-primary">Ok</button>
+<button type="button" class="btn btn-info">Ok</button>
+<button type="button" class="btn btn-danger">Ok</button>
+
+
+2. Cards
+
+just copy paste from the web
+
+
+3. Navs
+
+navbar
+
+bootstrap navbar
+copy paste those snippets
+
+bootstrap navbar when minimized or when having a smaller width it will automatically show a smaller menu
+
+never forget the scripting code at the end of the body, 
+that scripting code gives the functionality to the website, using bootstrap javascript code
+
+i did'nt forget, angela did
+
+
+svg used for icons and basically they are used as an alternate for the images
+
+either it svg image can be download from the icons or the html can be copied and pasted directly in the place of the <img> tag instead of it
+
+all bootstrap classes come from utilities.scss
+
+some times all the things are not from bootstrap so somethings like icons you need to bring from the inspection through copying
+and put it in our style element in the head section so that css will be applied
+
+and removr the existing <svg > files and replace them with custom image for the icons, as of now
+like 18:03
+
+adding the chevron right after the get a quote
+replacing <svg> with img
+
+the svg can either be completely downloaded or the html can be copied and pasted in style, or in the image place, not sure, check in web for this
+
+
+4. Carousel 
+
+it allows us to scroll through the pages
+
+indicator at bottom, side buttons
+
+they are aligned with the rest of the content
+
+if the images are not set in the carousel then the carousel will not be displayed
+to appear the src needs to be set
+
+
+.container is an inbuilt bootstrap class
+
+
+
+5. Footer
+
+
+
+
+
+utility classes and spacing
+padding, margin
+
+here classes are made in this format
+
+{property}{sides}-{size}
+mt-3 = margin top 3px
+
+{property}{sides}-{breakpoint}-{size}
+
+margin at top and bottom = x
+margin at left and right = y
+
+my-3
+mx-4
+
+
+
+Addign dark mode in the website
+
+flipping the colors around 
+by adding adding oone property into the html tag
+
+from 
+<html lang="en">
+to 
+<html lang="en" data-bs-theme="dark">
+
+
+
+
+
+if there is a gap or extra white space in the bottom then put the body to occupy 100% height and remove the margin and padding 
+
+/* In style.css */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa; /* or match your gradient end color */
+}
+
+
+If we have external css then it should be placed after bootstrap link in the head section so the external css will be the final one
