@@ -1,0 +1,1052 @@
+75. Javascript Intro
+
+netscape navigator the browser that dominated 90's
+80% of browsing
+andreesen horowitz - maker of netscape navigator
+
+now the tech has been used by firefox
+
+internet 1995
+html is just a form but no functionality
+
+website -> data server -> returns webpage
+
+and 
+they wanted to run the code on the browser rather than on the server
+so they wanted a scripting language
+
+and the scripting language should be easy
+and there comes Brendan Eich
+and with his team
+made javascript in 10 days
+
+without javascript = ad free browsing experience
+and javascript can be disabled in chrome content settings
+
+and then some sites wont even load up
+
+internet is highly reliant on javascript
+
+initially it is called livescript
+engineers at microsoft reverse engineered and called in Jscript
+
+so there are many version
+
+europeans standardized it to ECMA script 
+europeans computer manufacturers association
+so now it is ES5 or ES6
+
+regular scripts say what actors should do 
+
+and scripting languages do the same thing to websites
+
+in our case 
+script is the javascript 
+and the actors are the html elements
+
+eg : 
+Unhide h1
+1s delay
+Unhide p
+h1 change text to "Hello"
+p change text to "World"
+
+
+relationship between java and javascript 
+as car and carpet 
+
+in 90's java is trending and to make some tech famous they named the scripting language as Javascript
+
+but they have very big differences
+
+java - compiled language           all at once
+javascript - interpreted language  line by line
+
+in 1990 interpreted languages are very slow and toy languages
+
+modern js is used everywhere
+frontend, animations and interaction
+
+it is supported by all the browsers
+it is used by all website developers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+76. Javascript alerts adding behaviour to websites 
+
+alert("Hello");
+in javascript console in chrome
+
+this will give a pop up says hello 
+
+enter key wont function to go to the next line
+so the shift and enter should be used to go to the next line 
+
+
+there is another way of writing javascript code 
+that can be executed inside chrome
+
+beside console there are sources
+on the right chevron there are snippets click on it
+
+create a new script and call it index.js or whatever
+
+then you can write your code in javascript
+
+but consoles are for line by line execution
+
+snippet you can write and execute multiple lines of code
+
+
+javascript console will only respnd or execute for the keywords and 
+for other words it will give an error
+
+so more keywords in mdn docs
+
+alert("Hello");
+function message & semicolon is the end
+
+alert is a function = causes behaviour
+message will show up
+; denotes the end of the sentance 
+
+semicolons and the parenthesis are part of the syntax. 
+
+in programming 
+the opening quote and closing quote is the same symbol 
+
+and code editors and console and snippet tools will have only the programming quotes 
+
+there should not be any spaces between the keyword/messages/paranthesis/ in the syntax 
+best practice is to have no spaces
+
+other stylistic choice
+is 
+use either single or double wuotes as a set
+
+
+
+
+
+
+
+
+
+
+
+
+77. Data Types
+
+
+1. String = string of characters
+browser knows
+inside the brackets it is a string 
+due to the quotation marks
+
+alert("Hello");
+
+everythin enclosed in quotation marks will be interpreted as a string 
+
+
+
+2. Numbers = 1,2,3,123
+
+3. Boolean = true false
+
+alert(2+3)
+
+typeof(23); 'number'
+typeof("jrx"); 'string'
+typeof(true); 'boolean'
+
+
+
+
+
+
+
+
+
+
+
+
+78. Javascript Variables
+
+prompt("What is your name?");
+will ask us to enter our name 
+basically a reply
+
+
+wow
+in snippets
+
+var myName = "Jrx"
+
+in console
+myName will output jrx 
+
+
+var is a keyword 
+myName is name of the Variable 
+"jrx" will be the value 
+
+var myName = "Angela"
+
+var stands for variable which means it can be changed
+
+alert(myName);
+again it can be used anywhere 
+
+
+similarly we can save information that the user inputs to the website
+var yourname = prompt("enter your name")
+
+var myName = "Jrx";
+var yourname = prompt("enter your name");
+alert("My name is "+myName+" welcome to my course " + yourname + "!");
+
+now once the the names get noted then we can delete the first two lines and then the pop up will still contain the names as they are stored 
+
+and these value stored in the variables can be changed always after the initialization
+
+
+
+
+
+
+
+
+
+
+
+
+79. Javascript Variables Exercise Start 
+
+
+swapping the variable values using temp variable, just initialized then then used it on the variables 
+there are also different approaches like bit manipulation and using different math operators
+function test() {
+    var a = "3";
+    var b = "8";
+    
+/***********Do not change the code above 👆*******/
+//Write your code on lines 7 - 9:
+var temp = a;
+a = b;
+b=temp;
+
+    
+/***********Do not change the code below 👇*******/
+
+    console.log("a is " + a);
+    console.log("b is " + b);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+80. Naming and Naming Conventions for Javascript Variables 
+
+console.clear() in console will actually clear the screen of the console 
+but not the information stored inside the console 
+
+to lose the information that has been stored in the browser/console
+just reload the page 
+that is enough
+
+
+name of the string doesnt matter for javascript
+
+but still for the naming conventions sake 
+it matters for the developers
+
+give your varibales meaningful names 
+
+there are things javascript wont allow for the variables
+like we cant use keywords like var
+var var = "value"
+wont accept
+
+keywords have a special color 
+
+variable names cant contain spaces 
+
+names can contian only letters numbers dollar sign and underscore
+abc123$_
+
+var my-name is not valid, my_name is valid 
+
+
+and recommended to use camelCase for names
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+82. String Concatenation
+
+combine multiple string using +
+"A"+"B" = "AB"
+
+alert("Hello"+" "+"world")
+
+var message = "Hello";
+var name = "jrx";
+
+alert(message + " there, " + name)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+83. String Lengths and Retrieving the Number of Characters
+
+no of characters in a string using its length property
+
+word.length = no of characters in the word 
+
+var name = "jrx100th";
+name.length
+now 8 will be printed in the console 
+
+previous character count for twitter is 140 now it is 280,
+they used length 
+
+var inp = prompt("Tweet : ");
+alert("You have written " + inp.length + " characters, you have " + 140-(inp.length) + " characters left.");
+
+this doesnt work
+
+// will comment the line
+
+/*
+    will coment everything in between
+  */
+
+var inp = prompt("Tweet : ");
+alert("You have written " + inp.length + " characters, you have " + (140-inp.length) + " characters left.");
+
+but this will work 
+
+var inp = prompt("Tweet : ");
+var inplen = inp.length;
+alert("You have written " + inplen + " characters, you have " + (140-inplen) + " characters left.");
+
+and this will work
+in the first one 140 is not enclosed in the brackets 
+
+
+
+
+
+
+
+
+
+
+
+
+
+84. Slicing and extracting parts of a string 
+
+to improve twitter character count functionality
+
+remove extra characters
+only the first limited amount of chars need to be taken
+and the rest need not to be printed 
+
+ctrl+/ will comment the highlighted code 
+and on commented code it will un-comment 
+
+var name = "jrx100th";
+name.slice(0,1);
+
+it starts at 0 and then upto 1 but not including 1
+
+this is string slicing 
+
+name.slice(7,8);
+start at 7 and end at 8
+so only position of 7 will be printed 
+
+var inp = prompt("Tweet : ");
+alert("You have written " + inp.length + " characters, you have " + (140-inp.length) + " characters left.");
+alert(inp.slice(0,280))
+
+
+
+
+
+
+
+
+
+
+
+
+
+85. Challange : Changing case in text 
+
+method = toUpperCase()
+word.toUpperCase()
+
+now the word will be converted to uppercase
+but wont be saved 
+var name = "jrx100th";
+name.toUpperCase();
+
+var name = "jrx100th";
+name = name.toUpperCase(); // name is now uppercase 
+name = name.toLowerCase(); // name becomes toLowerCase
+
+simply we are modifying the name after its initialization 
+ so it will be regular modification
+
+now just slice string, concatenate strings and then change case
+
+when a user enters their name in all lower case then 
+make the first letter to be upper and rest to be in lower 
+
+
+var name = prompt("May I know your name ");
+name = (name.slice(0,1)).toUpperCase()+(name.slice(1,-1)).toLowerCase()+(name.slice(-1).toLowerCase());
+alert("Hello, "+name);
+
+this should work 
+name.slice(1,-1)).toLowerCase()
+this wont include the last word in the input 
+
+
+Billion Year old logic
+var name = prompt("May I know your name ");
+name = (name.slice(0,1)).toUpperCase()+(name.slice(1,name.length)).toLowerCase();
+alert("Hello, "+name);
+
+here in the slicing for the lower case 
+i used the length of the name
+
+
+
+
+
+
+
+
+
+
+
+
+87. Arithmetic and modulo operator in javascript 
+
+Addition
+var a = 2+3;
+
+subtraction
+var b = 10-2;
+
+multiplication
+var c = 3*3;
+
+division
+var d = 6/2;    floor div //
+
+modulo
+var e = 9%6;
+gets the remainder of the division
+
+PEMDAS does apply here also 
+
+dog age to human age converter 
+
+humanAge = (dogAge-2)*4+21
+
+var dogAge = prompt("what is your dog age ")
+var humanAge = (dogAge-2)*4+21
+alert("Your dog will be " + humanAge + "y/o is he/she is a human")
+
+but this will accept anything not just numbers 
+
+
+
+
+
+
+
+
+
+
+
+
+88. Increment and Decrement Expressions
+
+var x = 5;
+x = x+1; //x = 6
+is the same as 
+x++ will just increment by one number 
+
+x-- will just decrement by one number 
+
+if c is level 1
+the c++ is level 2
+programming joke 
+
+increment of the C programming language 
+
+increasing for more than 1
+
+x+=2
+is same as x = x+2
+
+similarly for the variables containing the numbers 
+
+var x = 5;
+var y = 3;
+
+x+=y
+
+quiz
+
+What does y  equal?
+
+var x = 3;
+var y = x++;
+y += 1;
+
+here in line 2 value of x is incremented by 1
+and
+y will just get the value of x
+so at the end value of y is 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+89. Functions Part 1: Creating and calling functions 
+
+creating a function 
+
+function getMilk(){
+    series of instructions
+    block of code
+}
+no ending semi colon
+
+
+calling the function 
+getMilk();          // command
+
+
+maintain indention
+
+
+function getMilk(){
+    alert("instruction1");
+    alert("instruction2");
+    alert("instruction3");
+    alert("instruction4");
+    alert("instruction5");
+    alert("instruction6");
+}
+
+getMilk(); // calls the functions
+
+when called
+a regular series of pop ups will be visible
+
+funcation getMilk(){
+    console.log("instruction1");
+    console.log("instruction2");
+    console.log("instruction3");
+    console.log("instruction4");
+    console.log("instruction5");
+    console.log("instruction6");
+}
+
+getMilk();
+
+now the instructions will be visible in the console 
+one after another
+
+alerts are visible by the visitor of the website 
+
+console.logs are only visible for the developer 
+
+
+
+
+
+
+
+
+
+
+
+
+90. Functions Part 1 Challenge
+
+@ https://stanford.edu/~cpiech/karel/ide.html
+@ 5*5 grid 
+
+challenge 1 diagonal
+
+/**
+ * Welcome to the Stanford Karel IDE.
+ * This is a free space for you to 
+ * write any Karel program you want.
+ **/
+function main(){
+   //your code here
+   move4();
+   turnLeft();
+   move4();
+}
+
+function move4(){
+   move();
+   move();
+   move();
+   move();
+}
+
+
+challenge2 putting beepers across the grid diagonally
+
+in the least repetetive manner 
+
+function main(){
+   plant_B();
+   plant_B();
+   plant_B();
+   plant_B();
+   putBeeper();
+}
+
+function plant_B(){
+   putBeeper();
+   move();
+   turnLeft();
+   move();
+   tl3(); //turns right can also use turnRight() even though it is not mentioned in the documentation
+}
+
+function tl3(){
+   turnLeft();
+   turnLeft();
+   turnLeft();
+}
+
+
+challenge3 : putting beepers in alternating cells
+
+my_solution : 
+function main(){
+   seq60();
+   seq40();
+  
+}
+
+function seq60(){
+   bigOne();
+   uRTurn();
+   smallOne();
+   uLTurn();
+   bigOne();
+   uRTurn();
+}
+
+function seq40(){
+   smallOne();
+   uLTurn();
+   bigOne();
+}
+
+
+function bigOne(){
+   putBeeper();
+   move();
+   move();
+   putBeeper();
+   move();
+   move();
+   putBeeper();
+}
+
+function smallOne(){
+   move();
+   putBeeper();
+   move();
+   move();
+   putBeeper();
+   move();
+}
+
+function uRTurn(){
+   turnLeft();
+   move();
+   turnLeft();
+}
+
+function uLTurn(){
+   turnRight();
+   move();
+   turnRight();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+93. Functions and Arguments
+
+function getMilk() {   
+  console.log("leaveHouse");
+  console.log("moveRight");
+  console.log("moveRight");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveRight");
+  console.log("moveRight");
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("enterHouse");
+}
+
+
+Just like ice creams, javascript comes in 3 flavours
+
+till now we are using the vanilla form of javascript
+simplest form of javascript 
+
+now we can even specify the no of bottles that we need using a parameter in the functions
+
+function getMilk(bottles) {   
+  console.log("leaveHouse");
+  console.log("moveRight");
+  console.log("moveRight");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveRight");
+  console.log("moveRight");
+  alert("buy" + bottles + " bottles of Milk");
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("enterHouse");
+}
+
+getMilk(4);
+
+now we specified it for 4 bottles of milk
+
+that bottles is used like a variable to contain the input 
+now inside the function we can use that varible to calculate something or do something with it
+
+eg : 
+
+function getMilk(bottles){
+    var cost = bottles*1.5;
+    // do something with cose
+}
+
+getMilk(2);
+
+i guess adding parameters is the chocolate flavour 
+
+now the bottles variable can be used only in the function 
+
+again in the console it cant remember.
+
+  console.log("buy "+ (Math.floor(dollars/1.5)) + " bottles of Milk")
+
+there is a Math module or library on javascript for more complicated mathh functions
+
+
+
+
+93. Life in weeks function
+
+function lifeInWeeks(age) {
+/************Don't change the code above************/    
+    
+    //Write your code here.
+    console.log("You have " + 365*(90-age) + " days, " + (90-age)*52 + " weeks, and " + (90-age)*12 + " months left.")
+   
+/*************Don't change the code below**********/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+95. Functions part 3 : Outputs and return values 
+
+chocolate flavour of functions = functions that are able to take the input 
+and use the input to do something
+
+
+now we have the functions that are able to give an output 
+
+at the end of the function we have the keyword return 
+to specify the function to give an output
+
+eg : 
+
+function getMilk(bottles) {   
+  console.log("leaveHouse");
+  console.log("moveRight");
+  console.log("moveRight");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveRight");
+  console.log("moveRight");
+  alert("buy" + bottles + " bottles of Milk");
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("enterHouse");
+  return money % 1.5; // change 
+}
+
+getMilk(4); // outputs 1
+
+
+if the function outputs a value then we can even store the output in another variable
+
+var change = getMilk(4);
+
+this is the third flavour
+strawberry flavour 
+
+function getMilk(money) {   
+  console.log("leaveHouse");
+  console.log("moveRight");
+  console.log("moveRight");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveRight");
+  console.log("moveRight");
+  
+  var numberOfBottles = Math.floor(money/1.5);
+
+  console.log("buy " + numberOfBottles + " bottles of milk");
+
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("enterHouse");
+
+  return money % 1.5;
+}
+
+var change = getMilk(4);
+console.log(change)
+
+
+now the result of the function will be stored in the change variable 
+
+
+
+
+function getMilk(money) {   
+  console.log("leaveHouse");
+  console.log("moveRight");
+  console.log("moveRight");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveRight");
+  console.log("moveRight");
+  
+  console.log("buy " + calcBottles(money,1.5) + " bottles of milk")
+  
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("enterHouse");
+
+  return calcChange(money, 1.5);
+}
+
+
+function calcBottles(startingMoney, costPerBottle){
+  var numberOfBottles = Math.floor(startingMoney/costPerBottle);
+  return numberOfBottles;
+}
+
+function calcChange(startingAmount, costPerBottle) {
+    var change = startingAmount % costPerBottle;
+}
+
+
+console.log("Here is your change " + getMilk(5) + "dollars")
+
+
+almost peak effeciency
+
+parseFloat will take the string and checks if it is numeric and then converts into the number else just considers a Nan in that position 
+
+var money = parseFloat(prompt("What is today's milk budget: "));
+var costPerBottle = parseFloat(prompt("What is the cost per bottle of milk?"));
+
+function getMilk(money, costPerBottle) {   
+  console.log("leaveHouse");
+  console.log("moveRight");
+  console.log("moveRight");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveUp");
+  console.log("moveRight");
+  console.log("moveRight");
+  
+  console.log("buy " + calcBottles(money,costPerBottle) + " bottles of milk")
+  
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveDown");
+  console.log("moveLeft");
+  console.log("moveLeft");
+  console.log("enterHouse");
+
+  return calcChange(money,costPerBottle);
+}
+
+function calcBottles(startingMoney, costPerBottle){
+  var numberOfBottles = Math.floor(startingMoney/costPerBottle);
+  return numberOfBottles;
+}
+
+function calcChange(startingAmount, costPerBottle){
+  var change = startingAmount%costPerBottle;
+  return change;
+}
+
+console.log(
+  "Hello sir, here is the change of " + getMilk(money,costPerBottle) + " Dollars"
+)
+
+all the three types of flavours will be used simultaneously.
+
+function bmiCalculator(weight, height){
+    return weight/(height*height);
+}
+
+so this is a bmi calculator 
+
+for squaring we can use Math.pow()
+for squaring Math.pow(value, power);
+           result = Math.pow(height, 2);
+
+now we need to 2 decimals
+
+Math.round(result)
+just straight up rounds it 
