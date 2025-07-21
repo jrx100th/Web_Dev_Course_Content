@@ -1,0 +1,416 @@
+Randomization and love calculator
+
+99. Random Number Generation in Javascript: Building love calculator 
+
+var n = Math.random(); //0-0.999999999999999999999
+the random number that is generated is a 16 decimal place number 
+between 0 and 1 and never reaches 1
+
+n = n*6;
+n = Math.floor(n)
+now it will give only numbers between 0 and 5.
+
+
+var n = Math.random();
+n*=6;
+n = Math.floor(n)+1;
+console.log(n);
+
+now it is a pseudorandom number generator
+it is a deterministic number, just random, but statistically 
+
+var name1 = prompt("Your name :");
+var name2 = prompt("Your partner :");
+alert("Your love score is :" + (Math.round((Math.random()*100),2)+1) + "%")
+
+#pilla nibba
+
+
+
+
+
+
+
+
+
+
+
+
+
+100. Control flow : if else conditional logic 
+
+if (track === "clear"){
+    goStraight();
+    } else {
+        turnRight();
+        }
+
+YES 3 EQUAL SIGNS FOR CHECKING
+they are comparators
+
+!== checking lhs not equal to rhs 
+
+=== will also check for matching data types 
+== will not check for data types matching
+
+var a = "1";
+undefined
+var b = 1;
+undefined
+if (a === b){console.log("yes");}
+else{console.log("no");}
+VM3032:2 no
+undefined
+if (a == b){
+    console.log("yes");
+} else{
+    console.log("no");
+}
+VM3207:2 yes
+undefined
+
+
+
+
+
+
+
+
+
+
+
+
+
+102. Combining comparators
+
+3 basic comparators 
+
+&& AND 
+|| OR 
+!  NOT
+
+function bmiCalculator (weight, height) {
+    var bmi = (weight/(height*height));
+    var interpretation = ""
+    if (bmi < 18.5){
+        interpretation = "Your BMI is " + bmi + ", so you are underweight."
+    }
+    if (bmi > 18.5 && bmi < 24.9){
+        interpretation = "Your BMI is "+ bmi +", so you have a normal weight."
+    }
+    if (bmi > 24.9){
+        interpretation = "Your BMI is " + bmi + ", so you are overweight."
+    }
+    
+    
+    return interpretation;
+}
+
+bmi calculator
+
+
+
+
+
+
+
+
+
+
+103. BMI calculator
+
+function isLeap(year) {
+    
+/**************Don't change the code above****************/    
+    
+    //Write your code here.    
+    if (year % 4 === 0){
+        if (year % 100){
+            if (year % 400){
+                return "Leap year."
+            } else{
+                return "Not leap year."
+            }
+        }else{
+            return "Leap year."
+        }
+    }else{
+        return "Not leap year."
+    }
+
+    
+
+/**************Don't change the code below****************/    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+105. Collections
+
+collection of related items in the same container
+Array
+stored in the same container 
+
+var eggs = [egg1, egg2, egg3]
+var myegg = eggs[1] // second egg in the list
+
+eggs.length // 5
+
+square brackets = something to do with the square brackets 
+
+eggs.includes(item)
+to check if an item is included in the list 
+iterate through the array and then if present in the array
+then returns true
+
+
+var guestList = ["Angela", "Jack","Pam","James","Lara","Jason"];
+// console.log(guestList.length);
+// console.log(guestList[0]);
+// console.log(guestList.includes("Pam"));  // true
+
+var name = prompt("What is your name ")
+name = name.slice(0,1).toUpperCase() + name.slice(1,name.length).toLowerCase();
+if (guestList.includes(name)){
+    alert("Welcome aboard!");
+} else{
+    alert("Sorry, next time!");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+106. Adding Elements and Intermediate Array Techniques
+
+add new items into the array
+array.push(item)
+pushes to the end of the array 
+
+removing the last element from array
+array.pop
+
+in javascript there is no elif keyword instead it uses 
+else if
+
+this is the correct fizzbuzz code
+
+var output = [];
+
+
+function fizzBuzz(){
+    for (let i = 0 ; i < 101 ; i++) {
+        if ((i%3 === 0) && (i%5 === 0)){
+            output.push("FizzBuzz");
+        } else if (i%3 === 0){
+            output.push("Fizz");
+        }
+        else if (i%5 === 0){
+            output.push("Buzz");
+        }
+        else{
+            output.push(i)
+        }
+    }
+    console.log(output);
+}
+
+fizzBuzz();
+
+
+
+Another way of doing the same thing, but increment single number at a time 
+
+pushes single item everytime the code runs, and still it is excatly the same logic for fizzbuzz
+
+var output = [];
+var i = 0;
+
+function fizzBuzz(){
+    i++;
+    if ((i%3 === 0) && (i%5 === 0)){
+        output.push("FizzBuzz");
+    } else if (i%3 === 0){
+        output.push("Fizz");
+    }
+    else if (i%5 === 0){
+        output.push("Buzz");
+    }
+    else{
+        output.push(i)
+    }
+    console.log(output);
+}
+
+fizzBuzz();
+
+order of condition statements matter
+like water flow 
+
+
+
+
+
+
+
+
+
+
+
+107. Who is buying lunch solution
+
+function whosPaying(names) {
+    
+/******Don't change the code above*******/
+    
+    //Write your code here.
+    var num = Math.random();
+    num*=names.length;
+    num = Math.floor(num)
+    var res = names[num] + " is going to buy lunch today!";
+    return res;
+
+/******Don't change the code below*******/    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+108. Control statements : While Loops
+
+while (something is true) {
+    // Do something
+}
+
+var i = 1;
+while (i < 2){
+    console.log(i);
+    i++;
+}
+
+fizzbuzz using while Loop
+
+when an infinite loop runs on the chrome dev tools tab 
+then the tab will hang
+and dev tools will be disconnected.
+
+
+var start = 99;
+
+function lyrics(){
+    while (start > 1){
+        console.log(start + " bottles of beer on the wall," + start + " bottle of beer.");
+        console.log("Take one down and pass it around, " + (start-1) + " bottles of beer on the wall");
+        start--;
+    }
+    console.log(start + " bottle of beer on the wall," + start + " bottle of beer.");
+    console.log("Take one down and pass it around, no more bottles of beer on the wall");
+
+    console.log("No bottles of beer on the wall, no more bottles of beer.");
+    console.log("Go to store and buy some more, 99 bottles of beer on the wall");
+
+}
+
+lyrics();
+
+lyrics for 99 bottles of water
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+110. Control Statements For loop
+
+syntax :
+
+for (i=0; i<2; i++){
+    // do something
+}
+
+while something is true // repeat unitill the program is in certain state 
+for = for some repetetions 
+
+fibonacci series
+
+var list = [0,1];
+var num = prompt("How many fibonacci numbers do you wish to see :");
+
+for (i = 1; i <= num ; i++){
+    var n = list[list.length-2]+list[list.length-1];
+    list.push(n);
+    console.log(list[(list.length)-1]);
+}
+
+here it will generate the required number of numbers considering the 0,1
+and 0,1 wont be shown
+
+
+correct and most accurate fibonacci series generator
+
+var list = [0, 1];
+var num = parseInt(prompt("How many Fibonacci numbers do you wish to see:"));
+
+if (num === 1) {
+    console.log([0]);
+} else if (num === 2) {
+    console.log([0, 1]);
+} else {
+    for (let i = 2; i < num; i++) {
+        var n = list[list.length - 2] + list[list.length - 1];
+        list.push(n);
+    }
+    console.log(list);
+}
+
+
+
+var list = [0, 1];
+
+var num = parseInt(prompt("How many Fibonacci numbers do you wish to see?"));
+
+if (num >= 1) console.log(list[0]);
+if (num >= 2) console.log(list[1]);
+
+for (let i = 2; i < num; i++) {
+    var n = list[list.length - 2] + list[list.length - 1];
+    list.push(n);
+    console.log(n); // Print each new Fibonacci number as it's generated
+}
