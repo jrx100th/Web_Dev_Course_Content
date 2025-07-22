@@ -1,0 +1,550 @@
+114. Adding Javascript to websites
+
+till now it is the purest form of javascript
+so it is of no use if it is not included in the websites 
+
+
+for injectiing css into websites
+there are 3 ways
+1. inline
+2. internal
+3. external
+
+
+javascript is similar
+
+1. inline = through the html tag 
+Eg : 
+<body onload="alert("Hwllo")" >
+now when the body is loaded up then the javascript that is inside the onload, will get carried
+
+now problem is with the quotation marks
+quotation inisde quoatation
+
+now change it to single quotes and double quotes 
+<body onload="alert('Hwllo');" >
+
+and close it with a semi colon
+
+Inline javascript is hard to debug, and not really recomended
+
+
+2. Internal Javascript
+
+by adding script tag in the body section
+
+<script type="text/javascript">
+alert("Hello");
+</script>
+
+this works
+
+<body>
+    <h1>Hello</h1>
+    <script>
+        alert("Fuu");
+    </script>
+</body>
+
+
+3. external
+script that has an external source in the body
+
+position of the script tag, where we position it matters a lot
+
+<body>
+    <h1>Hello</h1>
+    <script src="./index.js" >
+
+    </script>
+</body>
+
+because order of the flow manners
+
+becuase javascript works on the elements on the index.html file
+if the file doesnt exist when javascript is executed, then it will throw a series of errors in the chrome dev tools console
+
+so javascript needs to be placed at the end of the file
+just above the ending of the body
+
+similarly css needs to be placed just below the title in the head section
+and it say if this selector is present do this to its elements
+
+TLDR:;
+external js on the bottom of the body
+external css on top of the head  
+
+broswer loads the website code from top to bottom
+
+new learning = will look into the document and then change the h1's inner html to "Good Bye"
+document.querySelector("h1").innerHTML = "Good Bye"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+115. Introduction to Document Object Model(DOM)
+adding functionality to HTML elements
+
+till now websites are static
+
+to be interactive
+
+DOM = it will catalogue the webpage into individual objects that we can select and manipulate 
+
+the task of converting the html to DOM is done by the browser, when you load up the website
+it converts the elements in the file into a tree structure with objects
+the level is basically a the same as the indentation
+
+inspecting a website and in console typing document will just give us the entire code of the website 
+
+document.firstElementChild
+will give the first element child of the complete document
+document.firstElementChild.firstElementChild will give the first element in the first elemet 
+means a sub element 
+
+no matter what html tag will be the document.firstElementChild
+
+like this we can select the objects of the tree(DOM), and then manipulate it
+
+
+for this code
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>My Website</title>
+
+        <link rel="stylesheet" href="./style.css" >
+    </head>
+    <body>
+        <h1>Hello</h1>
+        <input type="checkbox">
+
+        <button>Click Me</button>
+        <ul>
+            <li class="list">
+                <a href="https://www.google.com">Google</a>
+            </li>
+            <li class="list">Second</li>
+            <li class="list">Third</li>
+        </ul>
+
+
+        <script src="./index.js"></script>
+    </body>
+</html>
+
+document.firstElementChild.lastElementChild.firstElementChild; will take us to the h1
+
+so 
+var heading = document.firstElementChild.lastElementChild.firstElementChild;
+
+now changing the text of the h1, that particular object 
+
+heading.innerHTML = "Good Bye"
+it will change the text in the heading
+selecting the html element as object and then manipulate it 
+now instead of changing the text now lets change the css text color
+heading.style.color = "red";
+
+select elements and do things
+
+heading.style.color = "red";
+'red'
+heading.style.color
+'red'
+heading.style.color = "brown";
+'brown'
+heading.style.fontfami
+undefined
+heading.style.fontFamily = "Monospace";
+'Monospace'
+heading.innerhtml
+undefined
+heading.innerHTML = "Fuou";
+'Fu\ou'
+
+
+
+document.querySelector // looks inside our entire document 
+
+document.querySelector("input").
+will look into the selector of input
+
+and call a method on it
+
+document.querySelector("input").click();
+click() will simulate a mouse click
+just through the code 
+
+
+Eg: car 
+propertes : describe somehting about the object
+color
+number of seats
+number of doors
+
+methods : things that object can do (behavious i guess)
+brake()
+drive()
+park()
+
+similarly in js we can manipulate the objects
+using the dot notation 
+
+car.color // will give the color of the car
+
+similarly
+heading = document.firstElementChild.lastElementChild.firstElementChild;
+heading.innerHTML; will give us the text in the heading.
+
+this is a getter, will get us the value
+basically gets the value
+
+
+methods
+car.drive(); //it will do something 
+
+differnece between method and functionality
+method = something that an object can do 
+drive is associated with the car object
+
+button object 
+
+properties : 
+innerHTML
+style 
+firstChild
+
+methods : 
+click()
+appendchild()
+setAttribute()
+
+
+setter
+changing the existing value of the object
+
+eg with car : 
+car.numberofdoors = 0;
+setting it to 0
+whatever the previous value is 
+
+similar in js DOM
+
+heading.innerHTML = "go fyurself"
+will set the heading to "go fyurself"
+
+# barely a challenge is a challenge after her very good explanation
+
+change the third li element to something....just change it
+in the console
+
+well there is no index.js
+firstElementChild.lastElementChild.lastElementChild
+
+var target = document.firstElementChild.lastElementChild.lastElementChild;
+undefined
+target
+<ul>​…​</ul>​
+target.lastElementChild;
+<li class=​"list">​…​</li>​
+target = target.lastElementChild;   // just changed it/ redefined in the console
+<li class=​"list">​…​</li>​
+target
+<li class=​"list">​…​</li>​
+target.innerHTML = "Done";
+'Done'
+
+another way of doing it
+document.firstElementChild.lastElementChild.querySelector("ul").lastElementChild.innerHTML = "Angela's Solution";
+
+
+
+
+
+
+
+
+
+
+
+
+
+117. Selecting HTML Elements with Javascript
+
+document.getElementsByTagName("li");
+return an array of all 3 of our list items
+HTMLCollection(3) [li.list, li.list, li.list]
+
+it is plural
+getElemenets
+
+var list_items = document.getElementsByTagName("li");
+
+now it stores the array of list items
+and then changing the third one
+
+list_items[2].style.color = "purple"
+
+list_items[2].innerHTML = "changed";
+changing the text
+
+checking for the number of elements with tag named li in the entire page
+document.getElementsByTagName("li").length
+will give the number since it will be an array
+
+similarly there is getElemenetsByClassName
+select elements based on the class
+
+selecting the btn class from DOM challenge index.html 
+
+document.getElementsByClassName("btn");
+even for a single element it will give me an array 
+
+even though a single item is in the array, for manipulating its properties you still needs to select the first item of [0]
+
+document.getElementById("title") = Singular
+an id wont be on more than one element
+
+var title = document.getElementById("title");
+undefined
+title
+<h1 id=​"title">​Hello​</h1>​
+title.innerHTML = "hell yeah";
+'hell yeah'
+
+
+document.querySelector("li").innerHTML
+is only changing for the first element 
+
+document.querySelector("li")
+only selects the list items
+
+document.querySelector(.lis).innerHTML
+for selecting classes 
+
+document.querySelector(#id).innerHTML
+selecting id
+
+and similar to selector combiner we can also select using different selectors using combining
+
+eg:
+selecting h1
+document.querySelector("h1")
+
+selecting by id
+document.querySelector("#title")
+
+selecting by class
+document.querySelector(".btn")
+
+selecting the link inside the list item
+through combining selectors 
+document.querySelector(".list > .item") # list is id not a class
+document.querySelector("#list > .item");
+<li class=​"item">​::marker​<a href=​"https:​/​/​www.google.com">​Google​</a>​</li>​
+
+no need of removal of the quotes in between
+
+document.querySelector("a");
+<a href=​"https:​/​/​www.google.com">​Google​</a>​
+will just give the anchor tags in between 
+
+
+i want an li element that has a class of item,
+document.querySelector("li.item");
+
+list element that also has a class of item
+document.querySelector("li.item");
+
+
+here what if it selects more than one object 
+id list with class of item
+document.querySelector("li item");
+will select all list items in theory
+but only the first list element will be selected
+instead of all the selected elements 
+
+
+but when we want it to select all the items that satisfy the condition
+
+document.querySelectorAll("li.item");
+NodeList(3) [li.item, li.item, li.item]
+now they are returned as a array
+
+now to change them/manipulate them specify them at their index
+document.querySelectorAll("li.item")[2].innerHTML = "Hell Yeah";
+
+querySelector allows for more complex combinations to be selected
+rather then 
+getElementBy series 
+
+
+changing the Google text color to red 
+document.querySelector("li a").style.color = "red";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+118. Manipulating CSS styles of HTML elements using Javascript
+
+document.querySelector("h1").style.color = "red";
+
+javascript naming conventions tend to be camelCased
+
+
+1. font-size
+in css it is font-size
+in js it is fontSize      it will be camelcased 
+
+document.querySelector("h1").style.fontSize="10rem";
+
+even the value needs to be enclosed in double quotes 
+
+most of the cases there will be no dashes and then camel cased
+values represented as strings 
+
+challenge :
+change background color of button to yellow color
+
+document.querySelector(".btn").style.backgroundColor = "yellow";
+
+this is how we are going to change the css properties of the html element through java script code
+
+next up : seperation of concerns = toggle button to turn on and off the css 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+119. Seperation of concerns : Structure vs Style vs Behaviour 
+
+soc of all times
+
+html = content only
+css = style the website
+javascript = behaviour
+
+class list , it is a property of every dom object 
+document.querySelector("button").classList;
+outputs the classes that are attached to the button element
+DOMTokenList ['btn', value: 'btn']
+as of now a single class
+
+when we have the list of classes to that button,
+we can add classes to the class list 
+
+document.querySelector("button").classList.add("invisible")
+
+will add a class called invidible to wherever the button is there
+<button class="btn invisible">Click Me</button>
+
+.invisible{
+  visibility: hidden;
+}
+
+now the button is hidden
+
+now the style is maintained by css and we can turn it on and off using javascript
+
+similar to add, we can also remove a class from an element 
+document.querySelector("button").classList.remove("invisible");
+
+again it will be removed
+
+then another method is toggle
+document.querySelector("button").classList.toggle("invisible");
+toggle = if it is applied then remove it 
+if it is not applied then remove it
+
+this seperation of concerns helps a lot when we are debugging.
+
+not looking as desired = stylesheet
+not behaving as desired = goto javascript file 
+
+applying 10rem font size to h1 through javascript 
+
+document.querySelector("h1").classList.add("huge")
+
+next up : manipulating text 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+120. Text Manipulation and the Text content properly 
+
+till now changing the text inside the selected html element using tapping into innerHTML property
+another property
+textContent
+
+document.getElementById("title").textContent = "Hello"
+
+at starting they look and work the same in first glance
+innerHTML will give only then stuff in between the specified html tags
+including any other html tags 
+
+text content no matter what just gives the content
+eg in case of strong tag 
+
+so 
+using innerHTML we can also add HTML code in between the specified tags
+
+document.querySelector("h1").innerHTML = "<em>Good Bye<em>"
+now this will be emphasized 
+when giving html or any stuff like this using innerHTML everything goes into the quotation marks 
+
+
+
+document.querySelector("h1").textContent = "Zoro Roars!";
+this will change the text inside
+
+document.querySelector("h1").innerHTML = "<em>Zoro Roars!<em>";
+damm this will even change the font 
+and the text
