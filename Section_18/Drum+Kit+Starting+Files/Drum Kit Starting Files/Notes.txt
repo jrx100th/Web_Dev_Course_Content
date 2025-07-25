@@ -1,0 +1,584 @@
+136. Adding Event listners to a button
+
+add an event listener that listens for when it gets clicked, and when it does it will call the function handleClick
+
+document.querySelector("button") = will only target the first button
+target_element.addEventListener()
+
+addEventListener has two parameters
+1. type
+2. function that will be executed on the event, function , no need of paranthesis
+
+eg :
+document.querySelector("button").addEventListener("click", handleClick);
+
+function handleClick(){
+    alert("I got clicked!");
+}
+no need of paranthesis, passing in the name of the function 
+
+anonymous function, instead of passing the function name, the functionality will be passed in
+document.querySelector("button").addEventListener("click",function(){
+    alert("I got clicked!");
+}
+)
+the whole function is passed in 
+
+
+for (i = 0; i < 7 ; i++){
+    document.querySelectorAll("button")[i].addEventListener("click", handleClick);
+}
+function handleClick(){
+    alert("I got clicked!");
+}
+Adding that addEventListener to all the buttons
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+137. Higher Order functions and passing functions as arguments 
+
+go to any website
+highlight any text, then inspect it select the $0, which will direct to the same highlighted element
+and then we can edit it
+
+like 
+$0.innerHTML = "JrxScript";
+changes the text of the highlight innerHTML
+
+again on reloading it will be back to normal
+
+now making it a button
+like this
+
+$0.addEventListener("click", function() {
+    console.log("got clicked");
+});
+
+using the anonymous function 
+
+using named function
+
+$0.addEventListener("click", respindToClick);
+
+function respondToClick(){
+    console.log("I got clicked");
+}
+
+2 inputs
+input1 = click
+input2 = function name that needs to be executed
+
+just now we passed a function 
+
+
+function add(n1, n2){
+    return n1+n2;
+}
+undefined
+function multiply(n1, n2){
+    return n1*n2;
+}
+undefined
+function calc(n1, n2, operator){
+    return operator(n1,n2);
+}
+undefined
+calc(4,5,add);
+9
+calc(4,5,multiply);
+20
+
+
+good features of chrome developer tools
+
+1. debugger;
+
+type 
+debugger;
+hold shift+enter 
+call the function we want to debug 
+calc(3,4, multiply);
+hit enter, i mean just click
+
+now we will enter the debug mode
+
+functions that can take other functions as inputs 
+are called higher order functions 
+available in multiple programming languages.
+used for giving behaviour to our website using DOM 
+
+full functions set for calc (Higher order functions)
+
+function subtract(n1,n2){
+    return n1-n2;
+}
+undefined
+function add(n1,n2){
+    return n1+n2;
+}
+undefined
+function multiply(n1,n2){
+    return n1*n2;
+}
+undefined
+function divide(n1,n2){
+    return n1/n2;
+}
+undefined
+function calc(n1,n2, operator){
+    return operator(n1,n2);
+}
+undefined
+calc(3,2,divide);
+1.5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+139. How to play sounds on a website
+
+without messing with HTML elements
+
+var audio = new Audio('audio_file.mp3');
+audio.play();
+
+// under the hood creates a new HTML audio element
+constructs a HTML audio element
+
+.l {
+    background-image: url('./images/snare.png');
+}
+
+adding the background-imiage using css selectors
+
+so the class of l will have this backgo=round image 
+using the url 
+
+this = identity of the button that will trigger the event listener 
+
+when console.log(this); in the handleClick function,
+then when ever the button is clicked then it will console log the respective button identity 
+
+when im having access the this,
+then i also have the access to this.innerHTML, just like any object
+
+var numberOfDrumButtons = document.querySelectorAll(".drum").length
+for (i = 0; i < numberOfDrumButtons ; i++){
+    document.querySelectorAll("button")[i].addEventListener("click", handleClick);
+}
+function handleClick(){
+    console.log(this.innerHTML);
+}
+
+this will simply just console.log whatever is in between tags 
+
+now similarly changing the text color of the button that got clicked to button to white
+
+function handleClick(){
+    this.style.color = "white";
+}
+
+this will do it
+
+so basically this is letting us to tap into that object just like we used javascript in console
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+140. How to Use switch statements in javascript 
+
+if else is possible but there are 7 different drum buttons
+and they can be incremented 
+
+so there comes switch.
+
+
+function handleClick(){
+
+    var buttonInnerHTML = this.innerHTML;
+
+    switch (buttonInnerHTML) {
+        case "w": 
+            var a1 = new Audio("./sounds/tom-1.mp3");
+            a1.play();
+            break;
+        case "a":
+            var a2 = new Audio("./sounds/tom-2.mp3");
+            a2.play();
+            break;
+        case "s":
+            var a3 = new Audio("./sounds/tom-3.mp3");
+            a3.play();
+            break;
+        case "d":
+            var a4 = new Audio("./sounds/tom-4.mp3");
+            a4.play();
+            break;
+        case "j":
+            var a5 = new Audio("./sounds/snare.mp3");
+            a5.play();
+            break;
+        case "k":
+            var a6 = new Audio("./sounds/crash.mp3");
+            a6.play();
+            break;
+        case "l":
+            var a7 = new Audio("./sounds/kick-bass.mp3");
+            a7.play();
+            break;
+        default:
+            break;
+    }
+}
+
+
+the default is like a else statement
+all the cases need to end with the break; statement 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+141. A deeper understanding of JavaScript Objects
+
+var bellBoy1 = {
+    name : "Timmy",
+    hasWorkPermit : true,
+    languages : ["French","English"]
+}
+
+alert("Hello, my name is " + bellBoy1.name)
+now bellBoy1 is a javascript object
+
+so for different objects, we create different properties
+
+var houseKeeper1 = {
+    name : "Jane",
+    yearsOfExperience:12,
+    cleaningRepertoire : ["bathroom","lobby","bedroom"]
+}
+
+houseKeeper1.name; will out put the name
+and similar to other properties 
+just using the dot notation 
+
+
+so when there are multiple houseKeepers or bellBoys then we need to write a bunch of code
+so we can make a function, that looks like this
+that function(factory) is a fucking constructor
+
+function BellBoy (name, age, hasWorkPermit, languages){
+    this.name = name;
+    this.age = age;
+    this.hasWorkPermit = hasWorkPermit;
+    this.languages = languages;
+}
+
+for constructor function the names has to be captilized, not just captilized
+
+initialise/create a new object
+when creating the objects from the constructor functionn, we need to provide the inputs 
+
+var bellBoy1 = new BellBoy("Timmy",19, true, ["French,"English"]);
+
+difference between constructor function and regular function is
+1. keyword new, 
+2. name of the function is captilized from the beginning
+
+when creating an object using a var
+then when assigning properties use :
+but when writing the function for constructor then use = for assigning properties
+
+
+HouseKeeper Constructor
+function HouseKeeper(yoe,name,cleaningReport) {
+    this.yoe = yoe;
+    this.name = name;
+    this.cleaningReport= cleaningReport
+}
+var houseKeeper = new HouseKeeper(12,"Jane",["bathroom","Lobby","bedroom"]);
+undefined
+houseKeeper.name;
+'Jane'
+
+
+
+
+
+
+
+
+
+
+
+
+142. Objects, Methods and Dot notation 
+
+function moveSuitcase{
+    alert("May I take your suitcase?");
+    pickUpSuitcase();
+    move();
+}
+
+now it is just a function because it is not attached with any object 
+
+
+now associating the function so that it will become a method for that object
+
+var bellBoy1 = {
+    name : "Timmy",
+    hasWorkPermit : true,
+    languages : ["French","English"],
+    moveSuitcase: function() {
+        alert("May I take your suitcase?");
+        pickUpSuitcase();
+        move();
+    }
+}
+
+when making it in the constructor
+
+function BellBoy(namee, age, hasWorkPermit, languages){
+    this.name = name;
+    this.age = age;
+    this.hasWorkPermit = hasWorkPermit;
+    this.languages = languages;
+    this.moveSuitcase = function() {
+        alert("May I take your suitcase?");
+        pickUpSuitcase();
+        move();
+    }
+}
+
+function HouseKeeper(yoe,name,cleaningReport) {
+    this.yoe = yoe;
+    this.name = name;
+    this.cleaningReport= cleaningReport;
+    this.clean = function(){
+        alert("Cleaning in Progress!");
+    }
+}
+houseKeeper1 = new HouseKeeper(12,"tim",["lobby"]);
+houseKeeper1.clean();      // will get the alert
+
+
+now this code is very similar to the Audio class for playing sounds like use of the new keyword and object_name.play() using the dot notation.
+
+var tom1 = new Audio("sounds/tom-1.mp3");
+tom1.play();
+
+expected sourceCode
+
+function Audio (fileLocation){
+    this.fileLocation = fileLocation;
+    this.play = function(){
+        // stuff
+    }
+}
+
+
+
+
+
+
+
+
+
+143 . Tech Update : 
+
+Hey guys,
+
+
+
+TL;DR keypress is now deprecated, you should use keydown instead.
+
+Just a quick heads up, as technology moves incredibly fast, every week or so something else will change. 
+This is just a quick reminder that in the next lesson, when we cover detecting key presses, 
+you should be using the keydown event listener instead of keypress.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+144. Using KeyBoard event listeners to Check for Key Presses.
+
+event named all in lowercase, they can be pretty "counter intuitive"
+
+document.addEventListener("keydown",function(){
+    alert("Key was pressed")
+})
+
+now the entire document is listening to the keyboard strokes
+AND whenever a key is pressed then the alertbox pops up
+
+and to that function we can also pass in a parameter 
+event into the function(event)
+console.log(event) will console.log it 
+
+
+index.js:48 KeyboardEvent {isTrusted: true, key: 'd', code: 'KeyD', location: 0, ctrlKey: false, …}
+
+in MDN docs
+key Read Only  prints the key that is clicked in the current document
+
+document.addEventListener("keydown",function(event){
+    event.key;// will give the key that has been pressed to cause the event 
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+145. understanding callbacks and how to respond to events 
+
+$0.addEventListener("click", function(){
+    console.log("I got clicked");
+})
+
+higher order function = functions that are able to take functions as inputs 
+
+addEventListener is a higher order function 
+as it takes other functions to be executed on the event as a function 
+eg : 
+
+document.addEventListener("keydown",respondToKey(event));
+function respindToKey(event){
+    console.log("Key Pressed.");
+}
+
+now respondToKey is a callback function 
+it will wait for something to happen, like a click or keydown event 
+and then it gets call back and executed 
+
+$0.addEventListener("click",function(){
+    console.log("fuck you");
+})
+
+but this will give everything related to the event trigger
+$0.addEventListener("click",function(event){
+    console.log(event);
+})
+
+the event is just a var not a keyword, and it can even be changed to e or event
+for human readability sake lets keep it as event 
+
+function sayHello(to){
+    console.log("Hello" + to)
+}
+
+sayHello("tom") // Hello tom
+
+so this evt or event is just a input variable name
+
+but in js the callback function is called by the objet on an event 
+
+so basically the event happens will be converted to an object with the 
+respective event properties,
+
+so if event is a object, and has multple properties,
+then event.key is one of the properties,
+
+
+function anotherAddEventListener(typeOfEvent, callback){
+    var eventThatHappend = {
+        eventType : "keydown",
+        key : "p",
+        durationOfKeyPress : 2
+    }
+    if (eventThatHappend.eventType == typeOfEvent){
+    callback(eventThatHappend);
+    }
+}
+anotherAddEventListener("keydown",function(event){
+    console.log(event);
+});
+VM1380:2 {eventType: 'keydown', key: 'p', durationOfKeyPress: 2}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+146. Adding Animations to Websites
+
+when adding classes dont use the dot here, dont know why seems like it doesnt work 
+    document.querySelector("." + currentKey).classList.add(".pressed");
+
+instead just use the regular string of the class name 
+document.querySelector("h1").classList.toggle("pressed");
+
+by the way just the animations will be stored in the css file and using js they needs to be added to that object 
+
+so after clicking once 
+after 0.1 second delay we want them to be back again
+
+setTimeout(function(){its_functionality}, time_in_ms)
