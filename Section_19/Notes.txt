@@ -1,0 +1,554 @@
+149. What is JQuery
+
+Javascript framework
+Saviour or coders hands from carpel matatunnel ("real")
+
+for (i=0; i < document.querySelectorAll("button").length; i++){
+    document.querySelectorAll("button")[i].addEventListener("click",function(){
+        document.querySelectorAll("h1").style.color = "red";
+    });
+}
+
+in the document querying for all button 
+and querying again for h1 to turn them red 
+
+this is pure Javascript again,
+
+now Jquery
+$("button").click(function(){
+    $("h1).css("color","red");
+})
+
+
+Jquery allows us to take a line of code 
+Javascript : document.querySelector("h1")
+Jquery     : jquery("h1")
+more simpler: $("h1")
+
+3 lines of code does the same thing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+150. How to Incorporate Jquery into websites
+
+@ jquery.com you can download the code files 
+or use a CDN = content delivery network 
+
+google CDN is most preferred
+as it has been mostly used so 
+when a user loads your website there is already a good chance that they might already load the jquery CDN from a popular one.
+
+
+https://developers.google.com/speed/libraries
+
+copied the script tag from here 
+3. xsnippet
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+$("h1").css("color","red");
+selects the h1 and changes its css color property to red 
+
+right now in console it gives an error and doesnt change the color of the h1
+
+for it to be executed 
+first jQuery script tag needs to be placed above javascript script tag 
+
+if jQuery and javascript tags are placed in head, then
+they are not ready
+if the jquery library is not ready
+we should check for it
+
+using
+$(document).ready(function(){
+    $("h1").css("color","red");
+}
+
+now we are waiting till our jQuery library finished loading 
+and then we access h1 to change its color 
+
+
+
+
+
+
+
+
+
+
+
+
+151. How Minification works to reduce file size
+
+https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js
+this is the minified version of the jquery library
+when we visit
+very unstructured data
+same framework code but 
+spaces,
+new lines,
+comments have been removed 
+to reduce the file size
+
+minifier.org = does the minification 
+
+minifies javascript and css only
+and also reduces the file space 
+
+now size matters if the file is big then it will impact on the user side to load with their network
+
+if downloaded from the web i mean 
+if we download jQuery from the web.
+
+there will be version
+1. standard version with comments and clear explanation
+2. minified version
+
+we can actually make changes to jquery source code according to our requirements
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+152. Selecting Elements with Jquery
+
+select elements in our webpage to manipulate later
+
+document.querySelector("h1")
+$("h1")
+
+same 
+as the css selector, as selecting elements in css 
+
+eg : if we want h1 in the class of title
+$("h1.title");
+
+inside an id of header
+$("#header h1");
+
+
+when there are multiple buttons
+we need to use 
+document.querySelectorAll("button");
+now it will return an array
+
+$("button");
+does the same thing
+and using jquery
+there is no difference between selecting 1 or selecting many
+seems like it always returns list 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+153. Manipulating Styles with Jquery 
+
+$("h1").css("color","red");
+selecting it and then tapping into the css property and change it 
+
+and select the current color and console log it
+console.log($("h1").css("color"));
+rgb(0, 0, 0)
+
+console.log($("h1").css("fontSSize"));
+32px
+
+when tapping into the properties use camelCasing
+
+single value in css = getting the value
+2 values in css = setting the value in it 
+
+
+changing the style using js code is'nt good
+we have concerns for seperation 
+
+because 
+js = behaviour
+css = styling
+html = content
+
+and now we can add classes to other objects 
+using jquery
+Adding class : 
+$("h1").addClass("big-title");
+Removing class : 
+$("h1").removeClass("big-title");
+
+if i want to add or remove multiple classes
+then just add them in the paranthesis just with a space
+
+$("h1").addClass("big-title margin-50")
+
+now margin-50 and big-title are two classes that are added to that object 
+
+
+checking for them in the console
+$("h1").hasClass("margin-50");
+will return true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+154. Manipulating Text with Jquery
+
+manipulating the text inside an object using jquery
+
+2 ways
+
+1. 
+$("h1").text("Bye");
+$("button").text("Don't click me")
+
+$("h1").text();
+'Bye'
+$("button").text();
+"Don't click meDon't click meDon't click meDon't click meDon't click me
+
+in plain old Javascript
+we have innerHTML
+to edit or view the innerHTML 
+
+In Jquery it is simply
+$("button").html("<em>Hey</em>)
+
+most of the things in jquery we are using methods
+accessing through methods
+
+Jquery is completely written in javascript
+and shortens things a lot 
+
+
+
+
+
+
+
+
+
+
+
+
+
+155. Manipulating attributes with Jquery 
+
+attributes are things such as src for img
+href for links and anchor tags 
+
+if we want to manipulate image attribute 
+then
+
+getting the attribute 
+
+$("img").attr("src");
+will give us string stored in src
+
+
+setting the attribute 
+$("a").attr("href","https://www.youtube.com")
+will change the existing href to youtube
+sets value 
+
+
+class is also an html attribute 
+$("h1").attr("class");
+will print the all the applied classes that are applied to h1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+156. Adding Event Listeners using jQuery
+
+$("h1").click(function(){
+    $("h1").css("color","purple")
+})
+
+Adding an event listener to all 5 buttons
+regular = using a for loop
+
+for (var i = 0 ; i < 5; i++){
+    document.querySelectorAll("button")[i].addEventListener("click", function(){
+        document.querySelector("h1").style.color = "purple";
+    })
+}
+
+using jQuery
+$("button").click(function(){
+    $("h1").css("color","purple");
+})
+
+
+Keydown event listener
+remember : keypress is depreciated
+
+<input type="text">
+will display a text box
+
+detecting keystrones inside the text box
+
+$("input").keydown(function(event){
+    console.log(event.key);
+})
+
+will log keystroke into the console 
+
+and simply we can change it to anything not just the input-text-box
+
+$("body").keydown(function(event){
+    console.log(event.key);
+});
+
+$(document).keydown(function(event){
+    console.log(event.key);
+});
+
+now changing the code of this event listener 
+so that h1 will become the letter/key stroke
+
+instead of .keydown and .click there is a more flexible way of adding an event listener 
+
+.on = takes 2 parameters
+
+$("h1").on("mouseover", function(){
+    $("h1").css("color","red");
+});
+
+when the mouse is on h1 area then color changes to red
+i mean mouseover is just a single event that can be detected over the specified object 
+
+$("h1").on("click", function(){
+    $("h1").css("color","red");
+});
+
+But still doesnt clarify on how to target an object when there are multiple objects with the same specs 
+like 2nd button or 3rd button,
+like in regular js 
+rather than selecting all the objects with the same specs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+157. Adding and removing elements with jQuery 
+
+eg :
+now i want to add a button before the h1
+using jquery
+
+
+$("h1").before("<button>Before</button>")    add stuff before / in previous line
+$("h1").after("<button>After</button>")      add stuff after / in the next line 
+
+adding elemeents without messing with html 
+
+and there are also prepend and append
+which means they will appear just right before and after the element/target in the same line
+
+
+$("h1").prepend("<button>Before</button>")
+$("h1").append("<button>After</button>")
+
+and when we inspect it has been added inside the h1
+append and prepend are in like innerHTML 
+just beside the text
+
+but the before and after are before and after the h1 tag
+
+now simply removing all the buttons
+
+$("button").remove() will remove all the buttons in the document/current_web_page 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+158. Website Animation with Jquery 
+
+.hide()
+
+will hide the selected element
+
+// hide on clicking any button
+$("button").click(function(){
+    $("h1").hide()
+})
+
+// hide on clicking h1
+
+$("h1").on("click",function(){
+    $("h1").hide();
+});
+
+and to show it back
+$("h1").show()
+
+now clicking on h1 will hide the element and then 
+clicking on any button will show it again
+
+$("button").click(function(){
+    $("h1").css("color","purple");
+    $("h1").show();
+})
+
+
+$("h1").on("click",function(){
+    $("h1").hide();
+});
+
+
+#### Now the legendary toggle on the button
+$("h1").on("click",function(){
+    $("h1").toggle();
+});
+
+now on every click on the button it will show and hide the h1
+
+when hiding, the element gets removed from our html
+and it is a sudden change
+and the html elements will be pushed up
+
+so for a slower hiding or fading 
+
+we can use
+
+.fadeOut()
+
+$("button").on("click",function(){
+    $("h1").fadeOut();
+});
+
+it will reduce the opacity of the element and then it will hide it
+or remove it from the flow
+
+this is funny like a basket ball
+trying to use both and failed
+$("button").on("click",function(){
+    $("h1").toggle().fadeOut();
+});
+
+and fadeOut has its opposite fadeIn
+
+.fadeIn() will appear slowly
+
+instead of messing around with toggle and fadeOut together we 
+have
+
+.fadeToggle() option
+$("button").on("click",function(){
+    $("h1").fadeToggle();
+});
+will does the same thing
+toggle the fading 
+
+.slideUp() = collapse the selected element 
+.slideDown() = uncollapse the selected element 
+
+and similarly slideToggle()
+$("button").on("click",function(){
+    $("h1").slideToggle();
+});
+
+
+if we want more fine grained control over your animations
+then instead of prebuilt ones like slideUp,slideDown,slideToggle,fade(*3)
+
+we should use .animate() for making custom css
+
+.animate({opacity: 0.5})
+
+$("button").on("click",function(){
+    $("h1").animate({opacity : 0.5});
+});
+
+on clicking the opacity will just be reduced
+inside the animate function ()
+we can only add numeric value in the curly braces,
+so we cant just add stuff like changing color
+
+and if it is percentages or something like that 
+than use percentages
+
+and i can just change stuff using combinations
+not just using animate
+
+$("button").on("click",function(){
+    $("h1").slideUp().slideDown().animate({opacity : 0.5});
+});
+
+$("h1").slideUp().animate({opacity : 0.1}).slideDown().animate({opacity : 1});
+another combo
+
+the animations in the combo gets executed in an order
+
+instead of memorizing just understand and try to use the documentation
