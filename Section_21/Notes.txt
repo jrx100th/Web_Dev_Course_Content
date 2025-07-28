@@ -1,0 +1,201 @@
+185. Install Git Bash on windows
+
+go to new terminal and open git bash 
+and make it our default shell
+goto view --> command pallatte --> select default profile --> select git bash
+now git bash will be the default terminal profile 
+
+
+
+
+
+
+
+
+
+
+
+
+
+186. Understandding the command line.
+
+introducingg the shell, the kernel and the command line 
+
+
+shell : 
+
+kernel is the core of the operating system
+now shell is the user interface for us to interact with the kernel and with computer hardware
+
+our file explorer is a graphical user interface
+
+and there is also a CLI command line interface 
+CLI is an alternate way of interacting 
+
+BASH = Bourne Again SHell 
+it is a CLInterpretor for UNIX system
+Linux = Unix like system
+even MACOS
+
+it is just a greater control even CLI or GUI
+
+$mkdir Music = will create a folder named Music
+
+and using it is a lot of speed and control.
+
+regular GUI will hide the complicated and unnecessary stuff like config files etc
+
+in BASH terminal
+ls -a 
+will list out all the available folders
+
+and there will be multiple hidden folders and we can access them using BASH cli
+
+git and version control = more about this 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+187. Command line Techniques and Directory Navigation.
+
+ls = list 
+items inside the particular Directory
+~ will show the current directory location
+
+
+
+cd = change directory 
+
+going one level down
+
+cd /
+This command moves you to the topmost root directory in the filesystem hierarchy
+cd /root — goes to root user's home directory (requires root access).
+
+For your Desktop, the command is:
+
+bash
+cd /c/Users/YourUsername/Desktop
+For your Downloads, the command is:
+
+bash
+cd /c/Users/YourUsername/Downloads
+Replace YourUsername with your actual Windows username.
+
+You can check your current directory with:
+pwd
+
+
+cd ~   = take you to the home directory
+both cd and ~ will take you to the home directory
+
+C:\Users\YourUsername is the home directory 
+
+to execute the last command you typed then hit the up button
+and similarly i can go through your entire history of the commands 
+
+cd ~ = cd tilda = takes us to the root directory
+
+cd .. will take us back one level
+
+clear will clear the entire bash shell 
+
+we can also drag and drop files in the terminal so that we can actually just cd to that dropped location
+
+we can only specify where we want to go 
+in the forward of the hierarchy 
+
+by holding alt we can actually change the mouse cursor very quickly
+just hold ctrl+A will take it to the start of the command line
+ctrl+E will take to the end of the command line 
+
+clear the current command without executing it
+ctrl+U
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+188. Creating, Opening and removing files through the command line
+
+making a directory (a folder)
+$ mkdir Testing1
+Testing1 is created - an empty folder 
+
+making a file(creating a file)
+touch testfile1.txt
+
+so here 'touch' is the keyword, the file extension is compulsory
+without the extension it will just be a file 
+
+
+opening the file
+$ start testfile1.txt
+will open the testfile1 using the default text editor
+start is the keyword
+
+we can specify in which application we want to open the file in
+$ code testfile1.txt
+
+now this will open the file in vs code, and it can be edited
+since it is shortcut as code 
+
+
+Deleting files inside the command line 
+rm testfile1.txt
+will delete this single file
+
+now deleting multiple files from a single file
+to do this we should be inside the directory, in bash shell 
+pwd = print working directory
+now all of them in one go
+
+rm *
+
+will remove all the files in the pwd
+and here the GUI is not here to protect you
+and if an item is deleted then it is done fr like ctrl+z can't bring it back 
+
+for example doing a rm * in root directory will remove all the files. permanent delete 
+TLDR : rm will unlink the file/files from the file system
+recycle bin is also a part of the file system
+
+
+
+to removes folder or to remove directories there is a different command
+now remove the Testing1 folder 
+rm: cannot remove 'Testing1/': Is a directory
+so rm wont work 
+for that we have to add a -r flag (to specify the folder)
+$ rm -r Testing1/
+
+now the files and folders will be gone and the folder will be deleted 
+
+sudo = super user do = uses admin privileges
+-rf = remove by force flag = doesn't ask for permission
+--no-preserve-root/ = basically wipes the harddisk, and cannot be recovered
+
+so summary : 
+with great power there comes great responsibility, so don't just use these destructive commands
+
+for more power
+https://www.learnenough.com/command-line-tutorial
