@@ -1,0 +1,85 @@
+190. Backend Web Development Explained
+
+Backend consists of 3 components
+1. Server
+2. Application = for logic to web app to function
+3. Database = store and retrieve user data 
+
+
+1. Server is just a computer
+it should be ON 24/7 to listen to incoming requests
+any computer that is connected to network can be a Server
+
+local host 
+own computer as the Server
+when we are testing it
+
+
+2. Application
+logic running on the Server
+like how we want to respond to the browser
+it can send back data such as webpage/stuff/etc 
+and status codes/ 404/500 etc
+
+
+3. Database
+store user data
+if computer lost power, w/o Database, the information is lost
+form of permanent storage of the web application 
+
+
+
+webpages - only frontend that get requested from browser to the server 
+only html, css and js
+
+
+web application/web app = more than viewing web pages
+eg : allowing users to log in : like email and password
+now email and pwd will be sent to server in a request
+as the server is on and is listening
+and find the application to handle the login
+eg : login.js file will handle
+
+now look into the database and check the password 
+and validate it against the entered password from the front end 
+if they both match then send a response via a server in the form of homepage / home.html webpage 
+if they do not match then send the login page and ask them to try again 
+
+it is complex
+because we have logic and multiple componenets are involved
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+191. Backend Web Technologies and Technologies
+
+front end = HTML, CSS, Javascript
+React, Angular & Vue all are javascript frameworks 
+
+Backend = Java, RUBY,PhP, C#, python , Javascript 
+frameworks include
+java = springboot
+ruby = rails
+php = larvae
+c# = asp.net 
+python = django, flask
+javascript = node.js 
+
+
+Now lets start Node.js = Javascript Backend framework 
+it is the most used framework for Backend
+so it has most amount of documentation
+
+Python Flask for machine learning web app
+Php, ruby frameworks are declining
