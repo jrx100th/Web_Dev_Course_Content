@@ -1,0 +1,415 @@
+192. What is Node.js ?
+
+depending on the language we can choose the framework
+
+why use framework and not write everything from scratch using the chosen language and create server like that 
+reason : reuse components. reduce overhead
+
+it is not a framework.
+it is 
+"An aschronous event-driven Javascript runtime,
+Node.js is designed to build scalable network applications.
+
+it is a javascript runtime
+js runtime environment = to be run on the browser
+
+node runs on V8 engine, from chromium written in c and c++ very fast
+now we can run js in our own computer, just like a server
+
+aschronous and event driven
+in js mean
+it need not to do in sequence
+like we need not to wait untill the previous scripts have been executed
+event-driven
+initiate the order
+instead of waiting it can free up the resources
+will only take space when it needs to run 
+it will respond according to the event 
+
+summary : it allows us to build an application using javascript
+application is key aspect 
+it will run on our server 
+server is just our computer
+node js allows us to happen
+
+now we will be using javascript for front end and backend
+so one language to rule both front and back end
+
+using JS for the entire stack
+easy scaling 
+fast and non blocking
+huge ecosystem = npm(node package manager)
+many tech companies use it
+
+python based backend = for machine learning projects
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+195. Using Node.js
+
+checking the node version
+node -v 
+
+Node REPL 
+Read Eval Print Loop
+is a computer environment where user inputs are read and evaluated, and then the results are returned
+
+
+to initiate the node REPL 
+just type 
+node 
+in bash
+
+we will enter the node REPL 
+
+use .help to get more commands
+.exit to exit the REPL
+
+and typing ctrl+c two times will exit us from anything in the command line
+
+REPL is a javascript runtime 
+so its syntax works 
+like giving variables and working with them
+> 5+8
+13
+> 3+5
+8
+> let a = 3
+undefined
+> a+12
+15
+> a
+3
+
+it is just similar to the javascript console
+
+how we can write a javascript file and use node to run the entire file 
+so we will write the full js files and use node as the runtime environment
+
+folder structure is important
+
+writing code into the codefile
+
+when starting node REPL to be on with the index.js file 
+
+node index.js
+
+it will execute the code in the index.js in the node runtime
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+196. How to use the native node modules.
+
+what are native modules
+tools that are easier to make applications on the serverside 
+
+node filesystem
+allows us to read and write files on the server 
+
+node.js will liberate js out of the browser
+
+
+file system = native node module 
+that allows us to access the local storage
+
+to start using it we need to either import the code from the filesystem module 
+or we can require snippets of code that we need from https://nodejs.org/docs/latest-v22.x/api/index.html
+the link should be changed to 22.xx version
+
+ESM in the next lesson
+CJS = common JS 
+to get hold of the methods from filesystem module
+
+in 2.2 
+index.js
+
+creating a const called fs 
+using require
+const fs = require("fs")
+
+inside the require the module that we want to be entered as a string 
+fs = filesystem
+
+fs.write()
+will allow us to take a message like a user input
+and write it into a file to save to the computer 
+in this case it will be our local computer 
+
+the method to do this is 
+writeFile from node filesystem module 
+
+format 
+
+fs.writeFile(file, data[,options],callback)
+
+file = file that we want to create 
+data[,option] = data that we want to put in that file 
+callback = function to handle any errors and issues
+
+fs.writeFile("message.txt","Hello from NodeJS",(err)=>{
+    if (err) throw err;
+    console.log("The file has been saved");
+});
+
+now using the fs.writeFile 
+if the file is not there then it will be created
+if it exists then the data will be written, like the existng data will be erased.
+since the file path is not specified it will create file in the same folder 
+3rd parameter will be the call back function 
+
+fs.readFile("message.txt","utf-8",(err,data)=>{
+    if (err) throw err
+    console.log(data)
+})
+
+without the utf-8 it will just give as an error 
+like the just <Buffer 48 65 6c 6c 6f 20 66 72 6f 6d 20 4e 6f 64 65 4a 53>
+if no "encoding" is specified then the raw buffer is returned 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+197. NPM Package update
+
+Use:
+import { randomSuperhero } from "superheroes";
+const name = randomSuperhero();
+
+Instead of:
+import superheroes from "superheroes";
+const name = superheroes.random(); // doesn't work anymore 
+
+
+
+
+
+
+
+198. Node Package Manager and installing external node modules 
+
+npm by github to get other people code 
+community tool library
+so that everyone from community can use 
+
+if we have node installed, then also npm installed 
+
+initialise first npm project 
+goto folder
+and in bash 
+
+npm init
+
+brings up initialization  utility
+it asks the package name : learning-npm
+version(1.0.0) just press enter 
+and etc 
+looks like this
+
+
+{
+  "name": "learning-npm",
+  "version": "1.0.0",
+  "description": "I'm Learning about npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jrx",
+  "license": "ISC",
+  "type": "commonjs"
+}
+
+
+Is this OK? (yes) y
+
+now a new file is created and it is package.json
+it is a json file 
+just a configuration file 
+
+Install NPM Package 
+npm install <Something>
+Something = name of the package
+
+in npmjs.com 
+we can search for npm packages 
+
+eg :
+sillyname
+random name generator 
+
+for installing 
+npm i sillyname
+
+i = shortform for install 
+
+added 1 package, and audited 2 packages in 2s
+found 0 vulnerabilities
+
+when we want to install multiple packages
+npm i pack1 pack2 pack3 pack4
+just seperate them with comas 
+
+now in package.json there is a new section called dependencies
+and we have a new folder node modules
+that downloaded all the code from the repositories for sillyname
+on the website for that package there are examples for how to use the package 
+
+var generateName = require('sillyname');
+var sillyName = generateName();
+
+simply sillyname is a object from the generateName class
+here generateName is just variable holding the class to use it 
+
+and then to execute this 
+just go bash and execute 
+node index.js
+
+It is just like LEGO blocks
+
+ECMA Script Modules
+
+CJS = using require 
+since v12 of node 
+ECMA = use of import keyword
+
+consistent through frontend and backend
+
+to use ECMA scripts 
+w have to go to pacakge.json
+which acts as a configuration file for our project 
+
+
+{
+  "name": "learning-npm",
+  "version": "1.0.0",
+  "description": "I'm Learning about npm",
+  "license": "ISC",
+  "author": "Jrx",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "sillyname": "^0.1.0"
+  }
+}
+
+from this to this
+change the type to "module" from "commonjs"
+default type is commonjs
+
+{
+  "name": "learning-npm",
+  "version": "1.0.0",
+  "description": "I'm Learning about npm",
+  "license": "ISC",
+  "author": "Jrx",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "sillyname": "^0.1.0"
+  }
+}
+
+
+import xxx from "sillyname"
+the xxx is the function from the sillyname class 
+
+this code shoudl be updated in the index.js
+
+
+// var generateName = require('sillyname');       ==> when type is commonjs(cjs)
+
+import generateName  from "sillname"              ==> When type is module 
+var sillyName = generateName();
+
+console.log("My sillyname is " + sillyName)
+
+
+
+similaly superheroes package installation
+
+import superheroes from "superheroes"
+var name = superheroes[Math.floor(Math.random()*1800)];
+console.log("My Super hero name is "+name+"!")
+
+for this imports to work 
+we have to set the type to be module based 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+199. Project QR code generator 
+
+using node js packages for a url to redirect to anywhere 
+
+using 2 packages
+1. Inquirer = to get inputs from the user 
+2. qr-image = generate images as a png to save into our local file system 
+
+user can type something in the terminal when we run the project 
+so from user input we will generate a qr image and save it locally 
+and make a text file using native fs node module 
+to save the user input 
+
+so after running we can type a url and that url can be generated into a image file saved into the same folder 
+and a text file to hold the user input 
+
+project start : 
+
+whenever creating a new project 
+start from npm init to make things clear
+
+npm install inquirer 
+npm install qr-image 
+
+now they get updated as the dependencies in package.json 
