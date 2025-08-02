@@ -1,0 +1,802 @@
+201. What is express?
+
+it is in 4th position globally
+
+node is not a framework it is a runtime environment
+it allows us to run javascript on the computer more than just browser
+
+express = real JS framework for backend for the website
+
+node multipurpose , like for iot devices 
+desktop apps,,,,,,  a lot of stuff
+
+node+express = raw dogg the backend concept
+
+we can just import express
+import express from "express"
+
+advantages are
+1. readability
+2. less code
+3. middleware 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+202. Creating our first server with express 
+
+backend : 
+server(computer)+application(index.js file)+database
+
+client-side : front end where user will interact with the webapp
+server-side : refers to everything on the backend 
+
+now building our server with expressjs+node 
+express will use node 
+we will use our local computer as the server 
+
+
+6 steps on creating Express Server.
+1. create a directory
+2. create index.js
+3. initialise NPM
+4. Install the express package
+5. Write server application in index.js
+6. Start Server.
+
+1. create directory using mkdir "3.1 Express Server"
+   goto that folder using cd 3.1\ Express\ Server/
+
+2. create index.js using 
+   touch index.js
+
+3. initialise npm without filling anything using
+   npm init -y
+
+4. install express package
+   npm install express 
+    now express will be a dependency for this folder package.json 
+    change the type to module so that it can import rather than require 
+
+5. Write Server application 
+code looks something like this 
+
+import express from "express";
+const app = express(); // creating an app using express obj
+
+// method on the app called listen 
+// and we have to specify 2 things
+// 1. port = location of the server where we will be listening for requests from the client side
+// 2. callback = callback function will be called when the server is setup
+app.listen(3000,()=>{           // a anonymous function is used here
+    console.log("Server running on port 3000.");
+});
+
+final code : 
+
+import express from "express";
+
+const app = express();
+const port = 3000;
+
+app.listen(port,()=>{
+    console.log(`Server is running on Port ${3000}`)
+});
+
+we setup a server using express and 
+it is going to listen on port 3000 
+and once it is setup then it will notify with console.log
+${port} will just print the port like an f string from python
+to act as an f string use backticks ``
+6. Start server
+   using 
+   node your_app.js
+
+   then if it is success it will output in console 
+
+   http://localhost:3000/
+   is the location of the server
+   and right now there is a response
+   from the server
+   Cannot GET/
+
+What is localhost
+==> when we dont have a server on internet and then we host the server locally 
+making our own computer server of our website backend
+
+https://localhost = tapping into our own computer
+after that like 587(smtp) 8080 3000, 3001 are all the port numbers 
+
+port = bunch of doors on our server computer 
+each of the door has an address
+
+right now we set our port in 3000
+and our server is currently listening in port 3000
+now looking at the door no 3000 by our own server computer 
+
+and reach the application in that port to listen to requests
+and respond to the request 
+
+there are many ports for listening multiple incoming requests 
+eg : printer
+remote
+mouse 
+keyboard
+have seperate ports for sending and listening stuff 
+without interfering with each other 
+
+so each activity will be listening to each port 
+
+checking which ports on the computer are listening from the outside 
+by using this command in the terminal
+to check which ports are open
+
+@ windows
+netstat -ano | findstr "LISTENING"
+now all the ports that are actively listening will be displayed.
+for some reason i couldnt even just get which app is using the port in the computer, instead 
+
+to exit from actively running server on bash terminal
+just ctrl+c 
+then the process will exit
+or create a new terminal
+
+
+coming back to 
+localhost:3000
+Cannot GET / 
+mean it can't get our index page, our homepage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+203. HTTP requests 
+
+language that allows you to make requests to node server 
+HTTP = hyper text transfer protocol
+
+TP = transfer protocol
+that allows the computers to talk to each other on internet 
+through a medium
+medium is HTTP 
+
+HTTP requests = 5 main words
+
+GET    = request a resource from the server
+POST   = sending a resource to the server like page,etc
+PUT    = replace a resource with a new one(updating)(update by replacing it)
+PATCH  = patch up a resource(another type of update)(partial change of data)
+DELETE = deletes resources from the server or the database 
+         from client side computer to server side computer
+
+
+as of now there is no instruction from the above 5 so it will 
+display Cannot GET /
+
+for it to display something we should add code in index.js
+
+/ == this forward slash is respresenting our homepage
+/ = homepage = root
+
+app.get("/",(req,res)=>{
+    res.send("Hello world");
+});
+
+now when the user is trying to get "/"
+they will see hello world as the response for get
+
+
+
+Exercise
+for setting up a server 
+
+1. Create directory called 3.2 HTTP Requests
+2. Create index.js file.
+3. Initialise NPM
+4. Install the express package
+5. Write server application in index.js
+6. Start server.
+
+dont forget to change the type to module when you are actuall
+multiple programs/applications can't use the same port
+
+import express from "express";
+
+const app = express();
+const port = 3000;
+
+app.get("/",(req,res)=>{
+    console.log(req);
+    // res.send("Working i guess")
+})
+
+app.listen(port,()=>{
+    console.log(`port no is ${port}`);
+});
+will actually print the entire request only after the localhost3000 has been accessed
+
+
+req.rawHeaders = list of key value pairs that shows where the request originated from 
+
+it has something to do with mapping the device 
+to identify stuff in the wild
+
+and we can send back a response 
+
+res.send("Hello world"); now it will be visible on browser 
+
+after changing any sort of code i just have to stop my server and restart with the updated code 
+which is quite annoying
+
+nodemon - professional web dev move
+automatically restarts the node application when file changes in the directory are detected
+so no need of manual stopping and starting of server
+
+to do this 
+when running a file in bash 
+use 
+nodemon index.js 
+instead of 
+node index.js
+
+installing nodemon globally on the computer like a one time thing, so that we need not to npm install it again and again
+npm install -g nodemon
+-g flag represents global 
+then it will be installed
+
+back to the sending the response 
+
+app.get("/",(req,res)=>{
+    res.send("<h1>Hello World</h1>")
+})
+
+we can send html tags in the response section.
+
+live update like live preview is not possible but still nodemon will update on refresh 
+
+till now only a forward slash / = endpoint 
+
+
+if want to add other endpoints into our server code 
+to handle other situations
+
+we simply can add another get method
+adding an about web page
+when the user goes to the /about in the website
+then 
+
+app.get("/about",(req, res)=>{
+    res.send("<h1>About Him</h1>");
+});
+
+[nodemon] to restart at any time, enter `rs`
+or just ctrl+c to exit from the process 
+
+
+app.set('case sensitive routing', true); // for strict matching
+will make the express route paths case sensitive 
+or else the route paths will be case insensitive
+express route paths are "/contact" / "about" / etc 
+
+i wonder how i can send a complete html file in the tags
+
+similarly we can build multi page websites 
+navigation built into web apps using node and express 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+204. Postman
+Postman and making other HTTP requests.
+
+Making requests using postman 
+
+http = for communicating client with server side 
+
+famous 404 response = server cannot find the requested resource
+HTTP response status code 
+
+100-199 = informational responses
+200-299 = successful responses
+300-399 = redirection messages
+400-499 = client error messages
+500-599 = server error messages 
+
+inspect 
+preserve log ON 
+and check the status code there 
+
+just check the mdn docs for the status codes 
+or 
+1.hold on
+2.here you go
+3.go away redirect 
+4.you screwed up(user)
+5.i screwed up(developer)
+
+
+GET
+POST
+PUT
+PATCH
+DELETE 
+
+Post is usually made from some form of HTML form 
+things such as signup page,
+that req goes to server via a POST req 
+and data will be sent to server and that data will be utilized by the server 
+like validating or putting it in a database 
+then send a response
+
+if we dont want to create a backend 
+
+create a front end without backend 
+
+there comes Postman
+
+just a lot of bad intro from angela yu 
+
+open a new tab beside overview 
+go to headers section 
+goto 
+x-www-form-urlencoded
+fill the key value pairs and send it to the url 
+like localhost:3000
+or wherever 
+
+then in the bottom it will reflect with the respective status code
+in this way without the front end code 
+we can do the testing by sending the requests to particular location 
+
+get is working now
+post is giving me 404 not found
+
+there are different methods for each of the HTTP requests 
+
+they(express) just simplified everything rather than using straight up node 
+so node+express is easy to use 
+
+post request is simply using the post method 
+put 
+patch 
+delete 
+all work very similarly wrt syntax 
+
+we can send the status code using the res.sendStatus(201)
+
+
+import express from "express";
+
+const app = express();
+const port = 3000;
+
+app.get("/",(req,res)=>{
+    res.send("<h1>Hoome pAge</h1>");
+});
+
+app.post("/register",(req,res)=>{
+    res.sendStatus(201);
+});
+
+app.put("/user/jrx",(req,res)=>{
+    res.sendStatus(200);
+});
+
+app.patch("/user/jrx",(req,res)=>{
+    res.sendStatus(200);
+});
+
+app.delete("/user/jrx",(req,res)=>{
+    res.sendStatus(200);
+});
+
+other than homepage we are not setting anything 
+as html
+and others are just response codes
+i guess for it to work we just need to run the server 
+
+we can just test it in postman
+
+i just feel so fking stupid just to download the 4.18 version of express from the course resources
+hey but game is game time matters 
+
+now run the index.js with nodemon
+
+when testing 
+change the address in the website and also the HTTP request method 
+
+when downloading from the internet node files
+they can be outdated
+so in order to overcome that
+just use 
+npm install in that folder
+then it will update/change the existing dependencies and co-dependencies 
+
+now in postman test out each of the routes and their respective HTTP requests 
+
+now open new tabs in postman and change the requests along with the routes 
+like
+
+app.put("/user/jrx", (req, res) => {
+  res.sendStatus(200);
+});
+
+app.patch("/user/jrx", (req, res) => {
+  res.sendStatus(200);
+});
+
+now localhost:3000/user/jrx will give 200 only when request is patch or put
+similar to other 
+homepage will work only with get and give the respective status code 
+
+put req will completely replace the resource 
+
+patch req 
+
+localhost:3000/user/angela?(key)=(value)&
+on patch it will replace that particular key value pair 
+
+all of the code in the logic for deleting the user, patching datam putting data and other methods should be written(logic)
+right now we are just in testing phase 
+
+next lesson = express middleware 
+for tapping into the values and then processing it in the backend logic, stuff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+205. Introduction to Middlewares 
+express middleware
+the man in the middle. Using body parser together with HTML forms 
+
+what is middleware : sits between the 
+raw req and route handlers(get, post, put, etc)
+
+middleware work with the raw req before they get processed by route handlers
+pre process the request 
+when we know req is going to multiple handlers
+it can go and change the aspects of the request 
+or perform various functions on that request
+before it goes to its final routing 
+also we can use mw for logging the request, like type,
+can also be used for authentication
+so before we let the request through to the backend handlers 
+to check did the req come from client that is authorised 
+
+we can process errors in the req and identify and handle them before backend
+
+
+Most used middleware in node and express in Body Parser 
+it can look at req body before handlers access them 
+this gives the req a new property called the body property 
+and very commonly used to handle form data 
+
+HTML form 
+action property = refer to the route that server will handle the request 
+method = the way in which we want the data to be processed in the backend(POST,PUT,Etc)
+         like updating posting and deleting info stuff like that 
+label = place where we label the next input
+followed by 
+input = two properties 
+        1. type = "text"
+                  "radio-button"
+                  "drop-down-list"
+        2. name = which is going to label the data that is going into the input, maybe placeholder 
+        3. required attribute, which means it cannot be submitted unless it is filled
+type of input called button
+<input type="submit" value="Submit">
+value is a placeholder or text inside the button 
+
+in public folder the static files will be placed
+such as html, css files and images, things that dont really needs a change 
+
+res.sendFile(
+    responding with a filename
+)
+
+for that we need some modules to work with the directory when it is being uploaded in the cloud server
+for that we need "path" and "url" module 
+so we can get them like this 
+
+import {dirname} from "path";
+import {fileURLToPath} from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+new things from index1
+and using the __dirname for the directory 
+
+app.get("/",(req,res)=>{
+    res.sendFile(__dirname+"/public/index.html");
+});
+
+using these both url and path modules make the path be dynamic in the cloud and the computer 
+__dirname+"/public/index.html"
+will be the entire path of the file 
+
+but when the project is hosted on a computer then the path will be relative to the computer that is hosted on
+
+now using bodyparser
+to get the information that is coming in through the form 
+
+when the submit button is clicked&and the details are filled 
+then it will check the forms method 
+here it is POST request to the path that we specified
+in action
+<form action="/submit" method="POST">stuff</form>
+here action is the path specified 
+
+so in index.js 
+we have to have a 
+route handler to handle the POST request 
+
+app.post("/submit",(req,res)=>{
+    console.log(req.body);
+});
+
+prints the body of the req 
+
+then use bodyparser
+to parse the information that comes in
+from the form 
+then add that data to the req object so that we can console log it and check 
+
+the code that required to do it is 
+
+app.use(bodyParser.urlencoded({ // we want to parse html form
+    extended : true            // obligatory
+}));
+
+so a web page such as /submit will only be shown when there is a get for that
+with post alone we will not see anything on 
+localhost:3000/submit 
+
+in postman
+
+localhost:3000/submit
+body section we can simulate a form 
+it will buffer as we didnt send a response code 
+
+without bodyparser 
+there is no body for the requests 
+
+app.post("/submit",(req, res)=>{
+  console.log(req.body);
+  // res.sendStatus(200); will send this code after the process
+});
+
+without the res.sendStatus();
+there wont be any server response 
+
+so it depends on the form action and method 
+like action works for the file path in which it can be linked to the index1.js
+and method works along with the specified method 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+206. Custom Middlewares
+
+using another type of middleware called Morgan 
+and then a custom middleware
+
+for middleware functionality 
+1. pre processing
+2. authentication
+3. error handling
+4. logging requests 
+
+body parser = pre process category 
+
+morgan = logging
+comes literally from dexter show (dexter morgan)
+used to log the requests that come into the server 
+
+to use it 
+install it into the server
+import it 
+then use it as middleware
+by 
+app.use(morgan("combined")); // combined, short, dev, tiny,common are the options
+
+morgan has the number of options to specify how the loggin should be
+
+so even before accessing the website it will log into the console
+
+mounting the morgan middleware using 
+
+app.use(morgan("tiny"))
+
+can test from both postman and the browser(localhost)
+even there is no post request , when we post from postman
+since it is happening before reaching the handlers and even if it is a 404
+it will still log the POST 404
+
+
+DIY middleware
+so we use any middleware using app.use()
+
+so in our own middleware we can have a function (anonymous)
+
+app.use((req,res, next)=>{
+    console.log("Request method: " + req.method);
+    next();
+});
+
+it has req and response object 
+and a next method
+
+since there can be multiple middleware and this process occurs in the middle 
+the next() function determines when we should move on from the middleware and continue from the flow of the server handlers
+when should it go to the next function that is in line 
+
+so the middleware that has been in app.use() can be created from scratch
+so right now it takes req and resp 
+and logging method(req.method)
+next() = proceeds to the next step of handling the request
+         simply redirects to the next function in the flow 
+
+there can be multiple middlewares in the same file 
+
+so the order of the middleware is very important
+
+for example authentication middleware should be at the top 
+right after the app creation
+
+then preprocessing or other functionality 
+
+req.method will give the method in the HTML file 
+req.url will give the site link, like the website 
+
+now use this req.url in index3.js
+
+function logger(req,res, next){
+  console.log(req.method);
+  console.log(req.url);
+  next();
+}
+
+app.use(logger);
+
+now the logger is the middleware code but in a function rather than keeping it in a anonymous function 
+
+i have no idea i figured the code for this
+
+if there is no next() function then the 
+it will never reach the next functions and will get struck in the middleware code
+in browser it wont load the site
+in postman it will just show loading or just buffer to abyss
+
+now making the classic band name generator from the index.html 
+
+dirname and fileURLToPath are named exports
+not default exports
+
+so named exports should be imported like this
+
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+
+app.post("/submit",generateBandName,(req,res)=>{
+  console.log(req.body);
+  console.log(bandName);
+  console.log("form recieved. check above lines");
+  res.redirect("/submit");
+})
+now generateBandName function/middleware will only work with the POST method/"submit" action in html tags 
+
+app.get("/submit",(req,res)=>{
+  res.send(`<h1>Your band name is ${bandName} !!</h1>`);
+});
+this will correctly interpolate the variables 
+
+instead of another app.get for the /submit we can also just send the interpolated HTML in the app.post 
+
+ORDER OF THE CODE MATTERS 
+
+first bodyparser,
+then middleware 
+then function like get,
+then put 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+207. Secrets Access Project
+website full of secrets, nope that is just highlighting.
+
+so since this is a scripting language
+no need of using recursion like traditional programming languages as it is being executed constantly
+function check(req,res, next){
+    console.log("Page suubmitted!");
+    if (req.body["password"] === "ILoveProgramming"){
+        res.sendFile(__dirname+"/public/secret.html");
+    } else{
+        res.sendFile(__dirname+"/public/index.html");
+    }
+}
+
+
+you should not call next() after sending a response (res.sendFile(...)). If you do, you'd get "Cannot set headers after they are sent" errors.
+
+if check is a function
+this will be fine 
+app.post("/check",check);
+
+password will be identified by the name property in the input-tag in the html form 
+
+if we use app.use(check)
+then we need to use the next()
+
+res.sendFile and res.redirect(url)
+will both redirect to a webpage 
+
+there is also a bodyparser function in express
+instead of installing bodyparser
+and still it needs to be added as a middleware 
+
