@@ -1,0 +1,346 @@
+209. What is EJS
+embedding javascript and html 
+
+till now we included html into javaxcript and send via post route 
+like this we cant send the details from the server to the html files to be displayed on the further uses
+
+It can be done using
+Templating
+instead we can send the complete html file 
+and using interpolation to sync in the data 
+when the webpage is big
+then it will be very confusing
+and the html entire file needs to be here
+we cant embed html into javascript 
+due to seperation of concerns
+js = function 
+html = file content/structure
+to seperate front end from backend 
+
+for this SOC
+we have templating languages
+for js using express and node
+it is EJS
+Embedded Javascript
+it ends with .ejs extension
+
+html
+and js enclosed with special syntax
+<% js_syntax %>
+for the required lines 
+
+like inserting a for loop inside the html file 
+
+<body>
+    <ul>
+        <% for (let i=0; i<items.length; i++){ %>
+            <li>
+            <%= items[i] %>
+            </li>
+        <% } %>
+    </ul>
+</body>
+
+and the items will be displayed in the screen 
+
+res.sendFile is only strictly for static files = files that dont change 
+and .ejs will always change,
+res.sendFile will also use __dirname
+
+index.js
+so we should use res.render
+app.post("/submit",(req,res)=>{
+    res.render("index.ejs",
+    {name : req.body["name"]}  // oprions in the form of javascript object 
+    );
+});
+
+first = we have to specify the file that we want to render on screen
+and add a javascript object 
+to pass over some properties 
+{ name: req.body["name"] }
+key value pair
+we will send the value that we got from the form 
+name probably
+
+index.ejs
+<body>
+<h1>
+Hello <%=name%>    // key from the index.js file 
+</h1>
+</body>
+
+
+Install EJS language support plug in vscode
+b digital brain stem
+
+change the type in the package.json 
+
+new thing from the challenge
+app.set('view engine', 'ejs');
+app.set('views', './views');
+
+app.get("/",(req,res)=>{
+    res.render("index",{
+        day : day,
+        context : context
+    })
+})
+
+
+Angela solution
+multiple commands in a single line through a semi colon 
+
+in ejs files
+<%= %>
+will allow us to output a value
+
+app.get("/",(req,res)=>{
+    res.render("index.ejs",{
+        dayType : day,
+        Advice : context
+    })
+})
+
+this will also work
+instead of the relative path the render is just looking for the path
+and the key should match the var_name from the ejs file
+
+damn if we already set one output value for the key
+we can just alter it using the if (before the line of execution)
+and skip the else part(more badass)
+
+by the way what is the difference between let and var 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+210. EJS Syntax 
+
+using different ejs tags
+tags are like 
+
+<%   %> pure
+<%#  %> comment
+<%=  %> output
+<%-  %> html
+<%%  %%> escape 
+<%- include("<FILE NAME>")%> change body of website 
+
+again extras come from the opening tag 
+like 
+=variable  =JS Output 
+<%=  %>
+
+now just pure ejs tag
+<%   %>
+it is executable javascript code
+<% console.log("hello")  %>
+will be visible in the console(logged) when it is loaded
+it will not give an output 
+it will just be evaluated 
+
+minus sign
+<%-  %>
+now whatever is in the tag will be interpreted as html
+<%- <h1>Hello</h1>  %>
+send the html through ejs file 
+when loaded it will transform into the respective html 
+
+rare use - escape ejs tag
+<%%  %%>
+we can escape ejs tag 
+extra % signs on both opening and closing tags 
+which means we can actually show the ejs tags in ejs files
+to show ejs as plain text 
+
+
+ejs comments
+<%# not code but a comment  %>
+
+insert another ejs file into the current EJS file, where the tag is
+<%- include("<FILE NAME>")%>
+the file called "FILE NAME" is opened(like changing the body of the website)
+
+so when using an array
+in ejs tags 
+dont use 
+array_name["items_name"]
+
+use it like this item_name 
+is enough 
+
+ejs html tags expect strings to be passed to the 
+  <%-"<p>No items to display</p>"%>
+
+instead of for loop
+there is for each loop 
+
+items.forEach((fruit)=>{
+    fruit
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+211. Passing Data to EJS templates 
+passing data from server to client and client to server 
+
+previously from server to client
+using re.render(file, data)
+
+what is the data is empty or we forgot to give the data 
+
+we can try
+if (array_name)
+and try
+but we will get an error
+
+so we should try with 
+
+if (locals.arry_name)
+
+use this variable called locals
+it has access to all the variables that get send over with res.render
+manually sending
+res.locals = {key value pairs}
+then use
+or else
+simply checking or using with 
+locals.variable_name
+
+this is server to client
+
+Now sending it back from the client side to the server 
+(just like checking the password project)
+
+using a POST request 
+on ejs as a form / action
+
+pieces of data are labelled under the name attribute 
+and using the bodyParser
+from req.body[]
+we can access the different pieces of data 
+according to the name or the respective label 
+
+inorder to use the body
+we have to use bodyParser
+and write the code for it from scratch
+
+when passing anything in the render other than file
+always use key:value pairs 
+so that it can be mapped by the server to ejs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+212. EJS partials and layouts 
+reusing ejs code
+using partial in ejs
+layouts, templates and partials 
+
+in head section 
+we can all stylesheets and all the stuff
+but in ejs file
+we cant send stuff 
+because ejs files are dynamic 
+and html file
+backend files are dynamic
+and css is static 
+so we cant link css to ejs 
+
+Public = static files = doesnt change = locate them through app.use(express.static("folder_name"));
+all the static files should be in a single floder like public
+href will be relative to the public 
+
+app.use(express.static("public"));
+we can only link the stylesheets when they are in the public 
+or whatever folder that we specify for static files 
+
+backend = dynamic folder 
+static files and folders needs to be placed in a public folder
+and 
+app.use(express.static("public"));
+in the index.js to make things clear 
+
+for a multipage website
+there will be a lot of repeated code 
+like navbar and footer
+only thing will change is the body
+
+so we can use features of ejs like templating
+we can replace the parts of code using ejs tags 
+
+ejs partials
+<%- include("file name") %>
+
+we can add them in the respective positions
+
+solution to the challenge
+
+<%- include("partials/footer.ejs") %>  // index.js is relative to the views folder
+in the respective places
+
+app.use(express.static("public"));(main thing)
+for mentioning the static files
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+213. Band Name Generator
+Creating a band name generator dynamic website 
+
+getting the footer to show the current year 
+
+<% var d = new Date() %>
+  <% var ty = d.getFullYear() %>
+
+  or d.getUtcYear will get the full year 
+  @today = 2025
+
+when css is relative to the public folder then start with the public folder
+like assume in the href that we are in the public folder
+then href = "styles/main.css"
