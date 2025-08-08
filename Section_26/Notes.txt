@@ -1,0 +1,22 @@
+public = css files
+views = ejs files
+outside in the level of notes 
+index.js
+
+action="create-blog/submit" in form
+but in the index.js post 
+use "/create-blog/submit"
+
+if it is not linking properly
+    <link rel="stylesheet" href="/style1.css">
+then just check the forward slash 
+
+
+when receiving data from a form of somehting
+collect it like this
+req.var_name
+
+when sending through render
+{
+    key : value
+}

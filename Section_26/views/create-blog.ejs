@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style1.css" >
+    <link rel="stylesheet" href="form-style.css" >
+    <meta charset="UTF-8">
+    <title>Create Content</title>
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+    
+    <form method="POST" action="create-blog/submissions">
+        <label for="blog_name">Blog Name:</label>
+        <input class="inp1" type="text" name="blog_name" required placeholder="Enter your blog name here.(65 chars max)" maxlength="65">
+
+        <label for="blog_context">Enter your Blog Text Here:</label>
+        <textarea class="inp2" id="blog_context" name="blog_context" required placeholder="Blog content goes here.(5000 chars max)" maxlength="5000"></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+
+
+
+
+
+
+
+    
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

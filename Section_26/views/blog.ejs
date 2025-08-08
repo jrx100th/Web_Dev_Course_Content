@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style1.css" >
+    <link rel="stylesheet" href="blog1.css" >
+    <meta charset="UTF-8">
+    <title>Blog Page</title>
+</head>
+<body class="blogBody">
+    <%- include('partials/header.ejs') %>
+    <div class="blog1">
+        <button class="blogIntroBtn" onclick="window.location.href='/create-blog';">Create Blog</button>
+        <button class="blogIntroBtn" onclick="window.location.href='/check-blog';">Check Existing Blog</button>
+    </div>
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

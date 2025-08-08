@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/style1.css">
+    <link rel="stylesheet" href="/check-blog.css">
+    <meta charset="UTF-8">
+    <title>Available Blogs</title>
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+
+    <main class="blogs-container">
+        <% if (!blog_titles || blog_titles.length === 0) { %>
+            <div class="no-blogs">
+                <h1>No Blogs Submitted Yet!</h1>
+                <p>Be the first to share your thoughts! <a href="/create-blog">Create a Blog</a></p>
+            </div>
+        <% } else { %>
+            <h1 class="page-title">Available Blogs</h1>
+            <ul class="blog-list">
+                <% for (let i = 0; i < blog_titles.length; i++) { %>
+                    <li class="blog-item">
+                        <a href="/blog/<%= blog_titles[i] %>">
+                            <span class="blog-icon">📝</span>
+                            <span class="blog-name"><%= blog_titles[i] %></span>
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+        <% } %>
+    </main>
+
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

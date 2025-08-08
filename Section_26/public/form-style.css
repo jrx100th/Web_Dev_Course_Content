@@ -1,0 +1,108 @@
+/* form-style.css */
+
+/* Center the form container */
+form {
+  max-width: 600px;
+  margin: 3rem auto 4rem auto;
+  background: #fff;
+  padding: 2.5rem 3rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 18px rgba(52, 58, 64, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+/* Label styling */
+label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #343a40;
+  margin-bottom: 0.4rem;
+}
+
+/* Input and textarea styling */
+input[type="text"],
+textarea {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 1.8px solid #ced4da;
+  border-radius: 0.5rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  font-family: inherit;
+  resize: vertical;
+  box-shadow: inset 0 1.5px 3px rgba(0, 0, 0, 0.06);
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #ffc107;
+  box-shadow: 0 0 10px 2px rgba(255, 193, 7, 0.3);
+}
+
+/* Increase height for blog text area */
+textarea {
+  min-height: 160px;
+}
+
+/* Submit Button */
+input[type="submit"] {
+  background-color: #343a40;
+  color: #ffc107;
+  font-weight: 700;
+  font-size: 1.3rem;
+  padding: 0.85rem 0;
+  border: none;
+  border-radius: 0.6rem;
+  box-shadow: 0 4px 12px rgba(52, 58, 64, 0.25);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  background-color: #ffc107;
+  color: #343a40;
+  box-shadow: 0 6px 25px rgba(255, 193, 7, 0.7);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+
+/* Default input styles (already existing, applies to inp1 and others) */
+input.inp1 {
+  /* No change needed if default styles apply */
+  /* Or explicitly restate if desired */
+  width: auto; /* or desired default width (e.g., 100% or 300px) */
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  height: auto;
+}
+
+/* Larger input for blog content */
+input.inp2 {
+  display: block;
+  width: 100%;      /* Full width */
+  min-height: 160px; /* Taller height for multi-line feel */
+  font-size: 1.2rem;
+  padding: 1rem 1.2rem;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  /* If you want multiline behavior, change inp2 to a <textarea> instead of input type="text" */
+}
+
+.inp2 {
+  width: 100%;              /* fills the container width */
+  min-height: 160px;        /* fixed height */
+  max-height: 300px;        /* limit max height before scrolling kicks in */
+  font-size: 1.2rem;
+  padding: 1rem 1.2rem;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  resize: vertical;         /* user can resize vertically */
+  overflow-y: auto;         /* show vertical scrollbar when needed */
+  white-space: pre-wrap;    /* preserve whitespace, wrap lines */
+  word-wrap: break-word;    /* break long words if needed */
+}
