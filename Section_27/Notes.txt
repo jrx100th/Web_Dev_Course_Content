@@ -1,0 +1,462 @@
+216. Introduction to Version Control and Git
+
+using git in cli 
+for version Control
+clone repository 
+for to fork
+make pull request 
+merge repository
+
+
+Version Control
+under vc using git 
+savepoint no.1
+after somelines
+savepoint no.2
+(second version)
+and 
+after someline the whole file is screwed up
+
+and now we can rollback to the previous savepoint 
+and it can be done using git
+and compare the current version to the previous version 
+can also be to previous versions 
+
+doing it in locally
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+215. Version control using git and command line 
+
+goto desktop and then mkdir Story
+goto it
+touch chapter1.txt 
+
+open it 
+open -a chapter1.txt  = works in mac
+
+start chapter1.txt
+will work for windows 
+
+creating git local repository
+and tracking the file changes
+
+to initialise git 
+git init 
+Initialized empty Git repository in C:/Users/jrx/OneDrive/Desktop/Story/.git/
+now this wont be availble in the 
+ls
+because it is in the hidden files
+and to get it 
+ls -a 
+now it will be displayed 
+
+.git is there
+to track all the changes
+commit the changes 
+to perform version control
+
+so now the Story directory is the working directory 
+
+to start tracking the changes 
+like chapter1.txt 
+then add the file to staging area 
+
+Working directory == > staging area 
+
+staging area is an intermediate place where we can pick and choose which  files in the working directory that we want to commit
+
+so to check what is inside my staging area 
+use 
+git status
+shows there are untracked files in red
+that are in the working directory but not in the staging area 
+
+to add it to the staging area 
+to start tracking changes in it 
+
+git add chapter1.txt
+
+now on 
+git status 
+it will show that the file is added in the new file
+
+now chapter1.txt is in the staging area 
+
+now committing under version control 
+
+git commit -m
+commit : useful in keeping tracks of changes that we made in each commit
+
+and we have to be descriptive between last savepoint and current save point
+
+so commit it like this 
+(in present tense)
+git commit -m "Complete Chapter 1"
+
+it will give auth error 
+
+git config --global user.name "Your Name"
+
+git config --global user.email "you@example.com"
+
+so now authorize yourself by giving the details so other people can see your commits and identify you as an author 
+
+now to see the logs/commits 
+git log 
+
+it will show all the logs 
+
+it has a hash
+and this hash uniquely identifies the commit 
+and saves the commit
+
+now create 2 more chapters 2 and 3 and fill them with something
+
+can even check it with ls in bash cli
+
+now adding multiple files to the staging area
+like this
+git add .
+now this will say that add all the files in the current directory to add to the staging area
+
+now in git status we can find these two files added in the staging area 
+
+now commiting those files 
+
+git commit -m "complete chapter 2 and 3"
+
+and check again with 
+git log
+
+-m flag to specify the commit message
+
+
+in git log 
+we have two commits with different hashes 
+
+
+git init in working directory
+local repository = git repository 
+git add to add it staging area 
+staging area = intermediate area 
+
+from staging area to git repository
+to specify which to ignore and which to be tracked 
+
+so
+working directory => Staging Area => Git repository
+              git add         git comit
+
+now files are inside the local repository and are given a name through commit message -m
+
+now even if we messed up a file 
+using 
+git checkout
+we can revert back to the last position in our local repository
+
+now imagine if the text is chapter3 is scrambled/not desired 
+we can revert back to theprevious version using 
+git checkout
+
+just check in git status it shows chapter3 is modified
+and it is red = not committed or not inside the staging area 
+
+to compare the differences between current and previous committed files 
+
+for differences 
+git diff chapter3.txt
+
+rolling back to the previous version
+
+
+
+
+press q to get out of the pager 
+
+
+TLDR : Summary
+
+git init = initialise
+then authenticate 
+git add .
+git commit -m "Message flag"
+git status 
+git log 
+q = to end the pager
+git diff file_name.exe 
+git checkout file_name = revert back to the previous version in the local repository 
+start file_name 
+ls -a = show hidden files in a directory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+218. Github and remote repositories 
+
+our repo that is hosted on somebody elses server or computer 
+using github 
+
+push an existing repository onto the remote repository 
+1. copy the address of the github repository
+https://github.com/jrx100th/Story.git
+
+2. push the existing local repo to Github
+git remote add origin https://github.com/jrx100th/Story.git
+git push -u origin main
+
+
+git log has 3 commits currently
+now pushing both of these commits to github
+
+to do that we need to create a remote repository
+command is = 
+
+git remote add origin https://github.com/jrx100th/Story.git
+origin = name of your remote (we can call it any thing)
+origin = conventional naming
+https://github.com/jrx100th/Story.git = url of the github repository
+
+after this 
+git remote add origin https://github.com/jrx100th/Story.git
+the remote is created 
+
+now we can push from local repository to the remote repository
+remote repository name = origin 
+
+git push -u <remote name> <branch name>
+
+git push -u origin main
+
+-u flag  = links up remote and local repositories
+then push it towards to the remote origin and then in the main branch 
+
+main branch = default branch = the first one / first level i guess 
+
+git branch
+lists the local branches 
+and marks the current one with *
+so right now it is * master
+
+now instead of 
+git push -u origin main 
+use 
+git push -u origin master 
+
+and then signin to the account through the verification process.
+
+now the local repository is uploaded to the remote repository to github servers
+
+now the commits pushed to the github page 
+and still the branch is master
+and the local repository remote is tracked with name origin 
+
+so all the files from local repository will be pushed to github page
+
+now go to insights in the repository and go to networks
+if it is a private repo then make it public to enable this feature 
+
+then again 
+insights -> network 
+comit messages for each of those commits 
+for the project 
+just like a timeline 
+
+there are creatures that write stories using github 
+
+again in the main page there are commits and the time of the commits 
+
+and we can also see the changes made in the time points 
+
+so now there are 4 stages
+
+working     git   staging    git     local        git      remote 
+directory   add    area    commit   repository   push      repository
+
+after few commits 
+local repository has a timeline of various commits 
+that is called the main branch
+
+main branch = main branch of commits or savepoints (it is sequential)
+here in the main branch the main progress is saved 
+
+syncing the local repository to remote repository using git push
+and the time line will be pushed from local to remote repo 
+
+in our case 
+.git file inside the story directory is the local repo 
+and remote repo = github hosts our code and the changes 
+
+TLDR : Summary
+
+git remote add origin "link"
+
+git push -u origin master 
+git branch
+
+insights -> network
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+219. Gitignore
+set rules to prevent committing to local and git repo 
+
+in the desktop create new directory
+project 
+and create 
+file1
+file2
+file3
+secrets
+
+and local setting and user preferences and utility files that shouldnt be uploaded in github 
+like .DS_store_files
+but these hidden files can be shown in ls -a 
+
+now lets create a hidden file 
+touch .gitignore 
+
+the case and wording is a huge deal 
+
+and in ls -a it is visible 
+
+and we can also open it in vs code like this 
+start .gitignore
+
+in gitignore we should add the files that our project should ignore when we commit our project to git 
+
+now initialise git
+right now it is empty 
+
+git add . 
+all the files to the git staging area 
+
+git status = gives the info on the staging area 
+all files are added in the staging area 
+
+now i dont want to commit the secrets.txt file 
+
+remove all the files from the staging area 
+
+git rm --cached -r .
+
+means all the files in the current staging area should be removed 
+$ git rm --cached -r .
+rm '.gitignore'
+rm 'file1.txt'
+rm 'file2.txt'
+rm 'file3.txt'
+rm 'secrets.txt'
+
+
+now in .gitignore we can add the file names that we want to be ignored
+to add individual files then add them in new lines 
+with the same casing as the name of the file 
+
+in gitignore
+# for comment
+
+wild card *
+*.txt 
+
+now after asterisk all the mentioned type files will be ignored 
+*.txt all the txt extension will be ignored
+*.log all the log extension will be ignored
+
+now again adding all the files 
+git add .
+and 
+git status 
+now the secrets file is not in the staging area 
+
+perp : No, you generally should not add the .gitignore file itself in the .gitignore file.
+
+now commit to the local repository
+now only these file1,2,3 will be in the local repo after commiting
+
+now a new node project 
+
+put the test folder on the desktop 
+then in vs code bash terminal 
+
+npm install 
+
+and create a .gitignore here
+touch .gitignore 
+start .gitignore 
+
+and in gitignore
+add the name of the files that needs to be ignored in our node project 
+
+https://github.com/github/gitignore/blob/main/Node.gitignore
+here are all the files that we need to add in the gitignore 
+such as dependencies, node_modules, .env settings 
+
+so copy all of them and put in the .gitignore file from web 
+
+after that we can add the files that we want git to ignore or gitignored
+
+
+now in terminal again 
+
+git init 
+
+git add .
+now it will show a warning for the format conversion
+
+to add/comit/push it as it is 
+git config --global core.autocrlf false
+
+now again 
+
+git add .
+
+git status 
+there will be a lot of files 
+
+now commiting it to the local repo from staging area 
+
+now when we upload to the remote repo the files in the gitignore will be ignored 
+and it wont be displayed to other collaborators or the people who see the project/repo
+
+so for api keys and secrets 
+create a file and add that file in the gitignore
