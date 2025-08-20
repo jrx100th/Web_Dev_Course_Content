@@ -1,0 +1,1044 @@
+225. Introduction to API
+
+Application Program Interface
+connecting internet and software 
+different software interacting with each other
+API =  bridges communication between different programs
+
+OpenWeather = weather data 
+API and API documentation
+getting data through inputs 
+
+make a req of what we want 
+req = get request 
+response = data from server/program 
+
+another case
+newsletter
+so email collection box 
+using email database
+send all the emails to mail chimp through an API
+how to structure the POST request 
+so we can do something with it 
+we need to structure the data for post/get req 
+
+everytime you tweet
+there is a arduino or iot device that will water the plant
+so this will work an API
+the API will lister through hardware from the program
+
+interface between 2 pieces of software 
+interact and react to each other requests and responses
+
+GraphQL,SOAP, REST API, gRPC = they are archetectural styles 
+
+similarly API has different set of rules 
+for creating API 
+JIT = Just in time learning
+learn before use case 
+
+in Web Dev : most common popular is RestFul API
+it is API that 
+we use HTTP protocol to interact with the API 
+GET, POST, PUT, PATCH, DELETE 
+
+exercise : make a request to an API and gets some piece of information from it
+using POSTMAN 
+
+
+ISS = International space station 
+getting the live location of international space station
+and note the latisute and longitue 
+
+simply put the url in postman and hit send
+https://api.wheretheiss.at/v1/satellites/25544
+
+it will return a json or a dictionary(smaller json)
+
+
+
+
+
+
+
+
+
+
+
+
+
+226. Structuring API requests 
+Formatting API requests
+endpoints, path parameters and query parameters 
+
+till now 
+frontend and server
+and interact through request and responses
+Now it is called private API
+becuase server is serving our own server and not anyone server 
+serving our own frontend(exclusively)
+if other people tap into it 
+its tapping into private API
+
+now 
+our server interact with someone elses server
+with req and responses 
+through a public API 
+its public API becuase they documented and share parts of their server to public 
+
+bored-api
+https://bored-api.appbrewery.com/random
+bunch of random data 
+
+
+1. API Endpoints 
+
+BaseURL/Endpoint
+eg : random from the above API 
+
+after website there will be an endpoint 
+
+
+always study before experimenting with API to be in the request limits(rate limit)
+most public apis doesnt need any authenitication 
+and also there will be a rate limit 
+so here from appbrewery we have rate limit of 100 requests for every 15mins
+100reqs/15mins
+
+
+2. Query Parameters 
+https://bored-api.appbrewery.com/endpoint?query=value
+literally 
+?query=value
+
+now we are adding the query 
+specs using key value pairs 
+
+multiple query parameters
+https://bored-api.appbrewery.com/endpoint?query=value&query2=value
+and adding more queries with & amd_percent 
+and adding them like that 
+https://bored-api.appbrewery.com/filter?type=education&participants=1
+one more
+https://bored-api.appbrewery.com/filter?type=social&participants=2
+
+here "filter" is the endpoint
+everything after ? are the queries
+
+in postman 
+in the query parameters after adding the key and value 
+they will go to the api 
+and get the data accordingly 
+
+first query comes after '?'
+and subsequent queries comes after the &
+
+
+3. Path Parameters 
+
+so after the base url     = doesnt change 
+then endpoint             = doesnt change
+the path parameters in {} = does change
+
+base_url/endpoint/{path_parameters}
+
+path parameters = very speciifc and can identify a resource in the API
+such as username, password or email used in authenitication
+
+query_parameters = filtering and searching 
+path_parameters = identifing a resource
+
+so all activities have unique keys 
+in appbrewery
+so now it is a path parameter 
+
+GET https://bored-api.appbrewery.com/activity/3*****6
+
+will ask you to learn express js 
+
+the 7 digit no is the path parameter 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+227. What is JSON?
+Introduction to JSON 
+
+in the response we receive the data as a json 
+json = javascript object notatation
+form of data that can be sent over internet in readable and effecient format 
+in key value pairs 
+can do a lot of nesting 
+it is extremely similar to javascript object 
+refer back to the javascript oops 
+
+only exception is the keys in javascript object can be free and need not be a string 
+but in json 
+the keys are always strings 
+
+eg for javascript object 
+const wardrobe = {
+    doors : 2,
+    drawers : 2,
+    colour : "red"
+};
+
+json will be 
+
+{
+    "doors" : 2,
+    "drawers" : 2,
+    "colour" : "red"
+}
+now everything is serialized and can be in a useful format to use 
+and it can be a flatpack notation
+
+so to view it 
+use a json visualizer 
+
+angelas recommendation : jsonviewer.stack.hu 
+paste json as text and then format 
+and has deep nesting 
+and can be expanded 
+
+turining a js object => serialization into json => flatpack 
+
+const jsonData = JSON.stringify(data)
+
+now making the javascript object will be converted to a string 
+opposite 
+from json to javascript object 
+
+const data = JSON.parse(jsonData)
+now data.ingredient will work
+i mean it will be javascript object again 
+
+pattern.monster
+customizable css or SVG patterns 
+and copy and apply it in the background-image : in the css section 
+
+<form action="/recipe" method="POST" class="buttons">
+    <button type="submit" value="chicken" name="choice">🍗</button>
+    <button type="submit" value="beef" name="choice">🥩</button>
+    <button type="submit" value="fish" name="choice">🐟</button>
+</form>
+
+so here values can be accessed in index.js through 
+req.body.choice
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+228. Making Server side API requests 
+till now from post man and browser 
+now making API requests with server in an application 
+in node and express backends
+
+now our server will interact with another server 
+as req and getting data as response 
+through the public API 
+
+so we have to use 
+import https from "https"
+to reach out to other servers 
+
+const options = {
+    hostname : "b",
+    path : "/g",
+    method : "GET"
+};
+
+here is how to access the data 
+options["hostname"]
+now it will output the value "b"
+
+https need not to be installed because the using api is common in web dev 
+
+app.get("/",(req,res)=>{
+    const options = {
+        hostname : website,
+        path : path,
+        method : get/post/del/put/patch 
+    };
+
+    const requests = https.request(options,(response)=>{
+        let data = "";
+        response.on("data",(chunk)=>{
+            data+=chunk;
+        });
+        response.on("end",()=>{
+            try{
+                const result = JSON.parse(data);
+                res.render("index.ejs",{activity : data})
+            } catch (error){
+                console.error("failer to parse :", error.message);
+                res.status(500).send("Faile to fetch activity. Please try again.")
+            }
+        });
+    });
+
+    request.on("error",(error)=>{
+        console.error("Failed to make request :", error.message);
+        res.status(500).send("Failed to fetch activity. Please try again.")
+    })
+
+    request.end();
+
+});
+
+
+group those packets together onto a data string 
+data += chunks 
+
+receiving end on the request 
+result = we can parse the json
+then send that data 
+through render to particular location 
+
+and a try catch block 
+to handle the errors during the parrsing th json 
+
+
+and also from a api error 
+
+app.get("/",(req,res)=>{
+    const options = {
+        hostname : hostname,
+        endpoint : /endp,
+        method : GET
+    }
+
+    const request = https.request(options,(response)=>{
+        let data = "";
+        response.on("data",(chunk)=>{
+            data += chunk;
+        });
+
+        response.on("end",()=>{
+            try {
+                const result = JSON.parse(data);
+                res.render("index.ejs",
+                {activity : data}
+                )
+            } catch (error){
+                console.error(error.message);
+                res.status(500).send("later);
+            }
+        })
+        request.on('error',(error)=>{
+            console.error(error.message);
+            res.status(500).send("later");
+        }
+        request.end();
+    });
+
+})
+
+1. collect the data and add it to form the json 
+2. try parsing and if any error throw it 
+3. show the error from the api side 
+4. request.end()
+
+now instead of the native node module use axios
+
+import axios from "axios";
+
+app.get("/", async(req, res)=>{
+    try {
+        const response = await axios.get(baseurl/endpoint);
+        res.render("index.ejs",{activity : respinse.data});
+    } catch (error){
+        console.error(error.message);
+        res.status(500).send("text message");
+    }
+});
+
+axios does pretty much the same thing 
+axious from npm 
+and put the baseurl and endpoint 
+async and await 
+
+await = wait for it to finish and then render 
+so the response.data will automatically converted to javascript object 
+
+axios also has a better error handling and group them together 
+but it is mostly used for API 
+
+it also has aliases for many methods 
+
+import axios from "axios";
+
+app.get("/", async(req, res)=>{
+    try{
+        const response = await axios.get("link");
+        res.render("index.ejs",{activity : response.data});
+    } catch (error){
+        console.error(error.message);
+        res.status(500).send("Message");
+    }
+});
+
+
+import axios from "axios"
+
+app.get("/", async (req, res)=>{
+    try{
+        const response = await axios.get("link");
+        res.render("index.ejs",{
+            activity : response.data;
+        });
+    } catch (error){
+        console.error(error.message);
+        res.status(500).send("message");
+    }
+});
+
+import axios from axios
+
+app.get("/", async(req, res)=>{
+    try{
+        const response = await axios.get("link");
+        res.render("index.ejs",{
+            activity : response.data
+        });
+    } catch (error){
+        console.error(error.message);
+        res.status(500).send("message");
+    }
+});
+
+import axios from "axios"
+
+app.get("/", async(req, res)=>{
+    try{
+        const response = await axios.get("link");
+    res.render("index.ejs",{
+        activity : response.data
+    });
+    } catch (error){
+        console.error(error.message);
+        res.status(500).send("message");
+    }
+});
+
+and axios does the same thing with less lines 
+
+res.status(404).send("File not found");
+res.render("index.ejs",{
+    error : error.message
+});
+
+only one of them can appear in a request cannot co exist 
+
+
+
+  try {
+    const response = await axios.get("https://bored-api.appbrewery.com/filter", {
+      params: { type, participants }
+    });
+    const result = response.data;
+
+    if (!Array.isArray(result) || result.length === 0) {
+      return res.render("index.ejs", { error: "No activities match your criteria" });
+    }
+
+    // Pick a random activity object
+    const randomActivity = result[Math.floor(Math.random() * result.length)];
+
+    res.render("index.ejs", { data: randomActivity });
+
+  } 
+
+so instead of params we can also use interpolation 
+like this 
+'https://baseurl/endpoint?type=${param1}&type=${param2}'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+229. API Authentication and Authorization
+authenticating ourselves to get data from API provider 
+
+so not everyone can have access to API 
+and protect the resources 
+401 = unAuthorized 
+
+4 tiers of Authentication
+1. no authentication 
+2. Basic Authentication
+3. API key Authorization
+4. Token based authentication 
+
+1. No authentication 
+bored-api = no authentication 
+and it has rate-limit : 100req/15min 
+most public API are like this 
+
+2. Basic authenitication
+providing the username and password 
+when asking for data 
+and proving the identity 
+
+passing over the base64 encoded string in header 
+
+taking text : ASCI 
+and that can be converted to binary 
+and 
+take the binary and encode it into another character 
+
+and each character can be converted to binary 
+
+username : password
+will be converted to base64 
+and add this to authorization header
+
+now trying it through postman
+
+https://secrets-api.appbrewery.com/
+
+this API has different endpoints with different levels of authentication 
+
+we can register a new user 
+by by pssing over a username and password 
+
+and use the username and password 
+to authenticate ourselves and request 
+
+random secret = no need of authentication
+https://secrets-api.appbrewery.com/random
+
+basic authenitaction 
+https://secrets-api.appbrewery.com/all?page=1
+
+here the api requests are paginated 
+so they give multiple at a time 
+like 10 or 20 at time like in the previous random activity api challenge 
+
+so now 
+for this api
+we have to authenticate ourself 
+like go to the authorization section in postman and then 
+and select basic auth 
+and give the username and password to work 
+
+so we have to first register 
+POST/register
+POST https://secrets-api.appbrewery.com/register
+{
+  "username": "j*******r",
+  "password": "I********t"
+}
+
+like this 
+
+my details
+{
+    "username": "J**************r",
+    "password": "j*************r"
+}
+
+send the POST request in x-www-form-urlencoded
+in the body section not authorization section 
+
+now successfully registered
+with status 200
+
+
+okay now using the username and password when we are getting the data 
+in the auth section
+
+when we use basic auth in postman
+postman is generating the authorization header based on the username and password provided 
+and generate a encoded string containing the username and password
+
+so in the headers if we take the string and 
+paste it in the base64decode.org
+we will get the 
+username : password
+in this format
+*******************************************=
+will be 
+******************************r
+
+and a library like axios it will generate everything like username and password 
+
+
+3. Now API Key Authorization
+
+difference between Authentication and Authorization
+authentication 
+authenticate themselves with their service = we can login or register 
+authorization = authorized/allowed to use that particular service through an API key 
+
+usually it is first authentication and then authorization 
+lot of public api use API keys instead of username and password authenitaction
+and track the usage per API key 
+
+we can use all sorts of google maps api
+so everytime we make a req we have to use the API key 
+
+and the provider will charge according to the usage 
+
+so now get an API Key from 
+/generate-api-key 
+
+then go to 
+/filter endpoint 
+and get some secrets based on the particular score 
+and 
+we have to pass 
+api key and score as query parameters 
+
+emScore : 7 or more 
+
+{
+    "apiKey": "************************************3"
+}
+
+now going to the filter endpoint 
+and in the body section if i pass them as the parameters the it is giving me api key doesnt exist 
+but when i directly put them in the url then it is fine 
+
+so add those in the params section and it will work
+yep query params go to that section 
+ 
+and you can also add the authorazation as API key and add the key value pairs  there
+depending on the API documentation we can add it in the query params or the header in the Authorization section
+and i am getting the result 
+
+
+4. Final Token Based authentication 
+
+basic : base64 username : password
+so it can intercepted and decoded by anyone hijacking the packets 
+most api providers have https on domain and is cryptographically encoded impossible 
+
+now tokens :
+username
+password
+and login 
+after login, we generate a token to be used with the API 
+and the API is not involved to username and password 
+instead its the token thats constantly being used with the APi 
+
+Token based authentication = oAuth
+industry standard = oAuth 2.0
+for token based authentication 
+
+so first sign in with username and password 
+then api provider will generate a token 
+and this token is the 3rd party 
+using the token you can interact with the API 
+
+eg : real life example 
+weather app 
+we need to gethold of the events in the google calanders events 
+like meetings date location and send them notifications relevant to them
+for user to have access to the data 
+w/o token based auth = give the username and pwd to interact with different services 
+with token based auth = oauth = user to sign in with google and this generates a token for us to get hold of 
+and we can use that token to interact with google calander api 
+now we have the users account access and we can post, delete and get data 
+and all the security will be handled by the website/organization just like sheety API 
+
+in google we just have to allow 
+
+better example through secrets-api 
+
+so first we have to register and then get the api key through the username and password
+so in short it is first authenticate then authorise with token 
+
+for some reason it is showing the password is incorrect
+so im registering again 
+
+username : u*********
+password : u*********
+
+values from body section 
+successfully registered 
+
+now get the API token 
+
+wow again in the params section or in the authorization section
+it didnt work and worked in the body section
+
+btw token : 
+{
+    "token": "8**********************************1"
+}
+
+now getting a secret through id through the token
+https://secrets-api.appbrewery.com/secrets/1
+
+now go to authorization section and then choose bearer token 
+and then put the token and send through get 
+{
+    "id": 1,
+    "secret": "I secretly eat ice cream straight from the tub when no one's looking.",
+    "emScore": 3,
+    "username": "user123",
+    "timestamp": "2023-06-25 12:01:23 utc"
+}
+
+and now changing the id 
+
+https://secrets-api.appbrewery.com/secrets/42
+
+{
+    "id": 42,
+    "secret": "I pretend to be a food blogger, taking pictures of my meals at restaurants even though I have no intention of posting them.",
+    "emScore": 6,
+    "username": "foodiepretender",
+    "timestamp": "2023-06-27 05:09:44 utc"
+}
+
+in body mostly use form-urlencoded data option 
+
+postman will generate an authorization header behind the scenes automatically
+
+in this challenge
+no auth = random secret 
+basic = get all path 
+apikey = filter 
+bearer = secret with id 
+
+now doing everything using website 
+i mean server side request rather than postman 
+
+
+getting data with noauth
+app.get("/noAuth", async (req, res) => {
+  try {
+    const result = await axios.get(API_URL + "random");
+    res.render("index.ejs", { content: JSON.stringify(result.data) });
+  } catch (error) {
+    console.error(error.message);
+    res.render("index.ejs",{content : error.message});
+  }
+  //TODO 2: Use axios to hit up the /random endpoint
+  //The data you get back should be sent to the ejs file as "content"
+  //Hint: make sure you use JSON.stringify to turn the JS object from axios into a string.
+});
+
+
+
+getting data from basic auth 
+app.get("/basicAuth", async(req, res) => {
+  try{
+    const result = await axios.get(API_URL+"all?page=2",{
+      auth : {
+        username : yourUsername,
+        password : yourPassword
+      }});
+    res.render("index.ejs",{content : JSON.stringify(result.data)});
+  } catch (error) {
+    console.error(error.message);
+    res.render("index.ejs",{content : error.message});
+  }
+  //TODO 3: Write your code here to hit up the /all endpoint
+  //Specify that you only want https://stackoverflow.com/a/74632908the secrets from page 2
+  //HINT: This is how you can use axios to do basic auth:
+  // 
+  /*
+   axios.get(URL, {
+      auth: {
+        username: "abc",
+        password: "123",
+      },
+    });
+  */
+});
+
+
+now with the apikey
+app.get("/apiKey", async(req, res) => {
+  try{
+    const responsee = await axios.get(API_URL+"filter",{
+      params : {
+        apiKey : yourAPIKey,
+        score : 8
+      }
+    });
+    res.render("index.ejs",{
+      content : JSON.stringify(responsee.data)
+    });
+  } catch (error) {
+    console.error(error.message);
+    res.render("index.ejs",{content : error.message});
+  }
+  //TODO 4: Write your code here to hit up the /filter endpoint
+  //Filter for all secrets with an embarassment score of 5 or greater
+  //HINT: You need to provide a query parameter of apiKey in the request.
+});
+
+
+
+Axios .get expects only two parameters:
+now with bearer token
+both the headers and params + API_URL will crash the server 
+so we cant use 3 
+because
+Axios .get expects only two parameters:
+and they should be 
+API_URL and headers or params 
+so put the params attach it to the API_URL
+
+app.get("/bearerToken", async (req, res) => {
+  try{
+    const response = await axios.get(API_URL+"secrets/42",{
+      headers : {
+        Authorization : `Bearer ${yourBearerToken}`
+      }
+    })
+    res.render("index.ejs",{content : JSON.stringify(response.data)})
+  } catch (error) {
+    console.error(error.message);
+    res.render("index.js",{content : error.message})
+  }
+  
+  /*
+  axios.get(URL, {
+    headers: { 
+      Authorization: `Bearer <YOUR TOKEN HERE>` 
+    },
+  });
+  */
+});
+
+so it will have single 1 config object and 1 API_URL
+
+and two config objects will crash the server 
+and it will ignore the 3rd parameter 
+
+
+and also use interpolation and use the id as a variable
+
+again to make them constants we can make the headers
+header {
+    headers : "blah blah blah"
+}
+
+and pass it in the axios parameters 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+230. Rest APIs 
+making get post put patch and delete API requests 
+
+till now making server side req 
+and using axios get req in try catch blocks 
+
+in the documentation 
+alterante way to call axios.get() method 
+now we can also chain a .catch and .finally and .then as well
+
+chaining like this .get().then(), async and await 
+comes from javascript promises API 
+and work slights different 
+in .get().then()
+first .get() will trigger and then wait until it is completely executed and then triggers .then() method 
+just like await and async 
+and we can chain multiple functions 
+and 
+now latest es8 version 
+await and async came up 
+
+now a function 
+it is marked as asynchronous by having the async before it 
+async function 
+async function get(){
+    await 
+}
+says wait untill the this line is done and then execute the next one 
+
+but .then .get type of chaining will be messy when there are a lot of functions are chained 
+and hard to get clear on the order of things get called.
+
+await async and chaining both will do the same thing 
+
+now back to HTTP requests
+
+.get will only have 2 parameters = url + config
+
+.post will have 3 parameters = url + data(body) + config
+
+body of the form data to post 
+like username and password
+making a post request using axios 
+
+config = headers, query_parameters etc 
+
+import axios from "axios";
+
+app.post("/", async(req, res)=>{
+    try {
+        await axios.post("URL",body, config);
+        res.sendStatus(201);
+    } catch (error){
+        res.status(404).send(error.response.data);
+    }
+});
+
+
+put request = provides all of the data to update in the backend(replace the netire entry)
+very similar to axios.put 
+
+app.put("/", async(req, res)=>{
+    try {
+        await axios.put("URL",body, config);
+        res.sendStatus(201);
+    } catch (error){
+        res.status(404).send(error.response.data);
+    }
+});
+
+patch request = update a bit of data 
+
+app.patch("/", async(req, res)=>{
+    try {
+        await axios.patch("URL",body, config);
+        res.sendStatus(201);
+    } catch (error){
+        res.status(404).send(error.response.data);
+    }
+});
+
+delete = only takes 2 parameters (url and config(as a javscript object))
+
+app.delete("/", async(req, res)=>{
+    try {
+        await axios.delete("URL", config);
+        res.sendStatus(201);
+    } catch (error){
+        res.status(404).send(error.response.data);
+    }
+});
+
+mostly config is optional 
+
+
+now the challenge 5.5
+using the POST route to create a secret 
+and the id will automatically be created 
+
+and PUT route to change the secret or the existing parameters 
+for put request we have to give all the data 
+
+PATCH request = just give only things to be changed 
+
+DELETE request = to delete the item
+so just give the id that needs to be deleted 
+
+the 3rd parameter should contain the headers parameter in which it contains the apiKey
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+231. Secrets Project
+
+it is a client side API 
+using the secrets api 
+
+based on a real app called whisper
+
+getting hold of random secrets from secrets api using axios and create a real product
+
+import express from "express";
+import axios from "axios";
+
+const app = express();
+const port = 3000;
+
+app.use(express.static("public"));
+
+app.get("/", async (req, res) => {
+  try {
+    const result = await axios.get("https://secrets-api.appbrewery.com/random");
+    res.render("index.ejs", {
+      secret: result.data.secret,
+      user: result.data.username,
+    });
+  } catch (error) {
+    console.log(error.response.data);
+    res.status(500);
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
+
+
+
+app.use(express.static("public"));
+and getting and using those paths is the real deal for us 
+so be careful for the next capstone 
